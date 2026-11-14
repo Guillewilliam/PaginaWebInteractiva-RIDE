@@ -1,0 +1,233 @@
+[
+  {
+    "id": "proyecto-ride",
+    "numero": 1,
+    "titulo": "El Proyecto RIDE: Filosofía y Valores",
+    "subtitulo": "Respeto, Inclusión, Diversión y Entorno",
+    "periodo": "Curso 2024-25 y 2025-26",
+    "participantes": "Toda la comunidad educativa",
+    "publico_objetivo": "Comunidad escolar, familias y ciudadanía de Utrera",
+    "categoria": "identidad",
+    "badge": "Pilar Fundamental",
+    "imagen": "assets/images/logo-ride.jpg",
+    "descripcion": "RIDE nace con la bicicleta como eje vertebrador para transformar los hábitos de movilidad en Utrera, reduciendo la huella de carbono y fortaleciendo la convivencia. El nombre conecta con el proyecto de bilingüismo (Respect, Inclusion, Discovery, Environment) y con los valores de la Escuela-Museo.",
+    "puntos_clave": [
+      "Respeto: Convivencia positiva entre ciclistas, peatones y conductores.",
+      "Inclusión: Acceso universal a la bicicleta para todo el alumnado mediante donaciones y préstamos.",
+      "Diversión: Aprendizaje vivencial, ocio activo y compañerismo.",
+      "Entorno: Cuidado del medio ambiente local y mejora del aire urbano."
+    ],
+    "evidencias": ["Logotipo oficial de Cristina Aparicio", "Roll-up institucional", "Tríptico informativo"]
+  },
+  {
+    "id": "educacion-vial",
+    "numero": 2,
+    "titulo": "Educación Vial I y II: Aprendizaje-Servicio",
+    "subtitulo": "Formación técnica y docencia entre iguales",
+    "periodo": "1er Trimestre (24-25 y 25-26)",
+    "participantes": "3º ESO y 1º Bachillerato de Arte",
+    "publico_objetivo": "Alumnado de 1º, 2º y 3º ESO",
+    "categoria": "educacion",
+    "badge": "Aprendizaje-Servicio",
+    "imagen": "assets/images/cartel-rollup.jpg",
+    "descripcion": "Estudio pormenorizado del Pacto Verde Europeo, la Ordenanza Municipal de Movilidad de Utrera (2023) y la normativa DGT sobre bicicletas y VMP. Con los conocimientos asimilados, el propio alumnado diseñó e impartió sesiones de capacitación ciclista a otros cursos.",
+    "puntos_clave": [
+      "Conocimiento de derechos y deberes ciclistas según la ordenanza local.",
+      "Diseño de materiales didácticos por estudiantes para sus compañeros.",
+      "Desarrollo de habilidades de comunicación y responsabilidad cívica."
+    ],
+    "evidencias": ["Presentaciones sobre normativa", "Carteles informativos sobre VMP y bicis"]
+  },
+  {
+    "id": "infatur-turismo",
+    "numero": 3,
+    "titulo": "INFATUR y Circuito Ciclista en el Patio",
+    "subtitulo": "Feria de Turismo y Jornadas de Tránsito con Primaria",
+    "periodo": "2º Trimestre (20-25 y 25-26)",
+    "participantes": "2º y 3º ESO",
+    "publico_objetivo": "Visitantes de INFATUR, familias y 6º de Primaria de centros adscritos",
+    "categoria": "difusion",
+    "badge": "Feria Escolar",
+    "imagen": "assets/images/infatur-stand.jpg",
+    "descripcion": "Durante la feria de turismo escolar INFATUR, el proyecto montó un stand de sensibilización con juegos europeos y decoraciones temáticas (incluyendo tándem y triciclo adaptado). En el patio se trazó un circuito ciclista con señales reales cedidas por el Ayuntamiento para simular la circulación urbana.",
+    "puntos_clave": [
+      "Circuito práctico con tizas y señalética vial reglamentaria.",
+      "Acceso mediante 'ticket' tras superar preguntas sobre movilidad verde.",
+      "Jornadas de tránsito para acoger a niños y niñas de 6º de Primaria de colegios adscritos."
+    ],
+    "evidencias": ["Stand decorado", "Bicis de préstamo utilizadas", "Señales de tráfico cedidas"]
+  },
+  {
+    "id": "diseno-rutas",
+    "numero": 4,
+    "titulo": "Diseño de Rutas Ciclistas y Mapeo",
+    "subtitulo": "Investigación cartográfica en Google Earth y clasificación por dificultad",
+    "periodo": "2º Trimestre (20-25)",
+    "participantes": "3º ESO (Cultura Europea)",
+    "publico_objetivo": "Alumnado ciclista y familias de Utrera",
+    "categoria": "cartografia",
+    "badge": "Cartografía Digital",
+    "imagen": "assets/images/mapa-recortes-p10.jpg",
+    "descripcion": "El alumnado investigó su propio entorno dividiendo Utrera por distritos y barrios. Inspirándose en las pistas de esquí, clasificaron las vías por colores según su nivel de protección y crearon itinerarios seguros de acceso al IES José María Infantes.",
+    "puntos_clave": [
+      "Verde: Vías protegidas segregadas.",
+      "Azul: Carriles señalizados sobre acera.",
+      "Rojo: Zonas 30 con prioridad ciclista compartida.",
+      "Negro: Puntos y tramos de alta peligrosidad."
+    ],
+    "evidencias": ["Presentación Google Earth unificada", "Planos físicos y mapas digitales"]
+  },
+  {
+    "id": "solicitudes-ayuntamiento",
+    "numero": 5,
+    "titulo": "Participación Ciudadana y Solicitudes Municipales",
+    "subtitulo": "Propuestas reales para una Utrera más ciclable",
+    "periodo": "2º Trimestre (20-25)",
+    "participantes": "3º ESO (Cultura Europea)",
+    "publico_objetivo": "Delegación de Urbanismo y Obras Públicas",
+    "categoria": "ciudadania",
+    "badge": "Impacto Real",
+    "imagen": "assets/images/visita-ayuntamiento.jpg",
+    "descripcion": "Tras detectar puntos negros en sus trayectos cotidianos, los estudiantes redactaron y registraron solicitudes oficiales dirigidas al Ayuntamiento de Utrera, solicitando aparcabicis y nuevos carriles en vías clave.",
+    "puntos_clave": [
+      "Concesión e instalación del aparcamiento de bicicletas dentro del instituto.",
+      "Petición técnica de carril bici en Calle Antonio Machado y Calle Jilguero.",
+      "Reunión con el Departamento de Obras y Mantenimiento de Edificios Públicos."
+    ],
+    "evidencias": ["Aparcabicis instalado", "Registro formal de entrada", "Informe técnico"]
+  },
+  {
+    "id": "ciclotaller-bartali",
+    "numero": 6,
+    "titulo": "Ciclotaller Solidario Bartali",
+    "subtitulo": "Economía circular, reparación y préstamo activo",
+    "periodo": "Todo el curso escolar",
+    "participantes": "Comunidad educativa y alumnado voluntario",
+    "publico_objetivo": "Alumnado sin bicicleta o en situación de vulnerabilidad",
+    "categoria": "taller",
+    "badge": "Solidaridad & Taller",
+    "imagen": "assets/images/ciclotaller-bartali.jpg",
+    "descripcion": "Las familias respondieron a un llamamiento solidario donando casi 50 bicicletas en desuso. En los recreos activos, docentes y alumnos habilitaron un almacén para reparar componentes, poner a punto 9 bicicletas de préstamo y rotularlas con frases conmemorativas.",
+    "puntos_clave": [
+      "Homenaje a Gino Bartali, ciclista y Justo entre las Naciones.",
+      "9 bicicletas rescatadas actualmente en préstamo activo.",
+      "Fomento de competencias STEM y aprendizaje manual y mecánico."
+    ],
+    "evidencias": ["Taller equipado", "9 bicicletas rotuladas con leyendas", "Registro de donaciones"]
+  },
+  {
+    "id": "masas-criticas",
+    "numero": 7,
+    "titulo": "Masas Críticas y Rodadas Colectivas",
+    "subtitulo": "Aprendizaje experiencial en la vía pública",
+    "periodo": "2º Trimestre (24-25 y 25-26)",
+    "participantes": "1º Bachillerato, 1º, 2º y 3º ESO (hasta 59 ciclistas)",
+    "publico_objetivo": "Ciudadanía y conductores de Utrera",
+    "categoria": "calle",
+    "badge": "Visibilidad Urbana",
+    "imagen": "assets/images/masa-critica.jpg",
+    "descripcion": "Inspiradas en el movimiento de George Bliss (San Francisco, 1992). Grupos de entre 10 y 59 estudiantes salieron a rodar por Utrera no como protesta, sino como ejercicio de convivencia pacífica y visibilidad bajo el lema: 'No interrumpimos el tráfico, somos tráfico'.",
+    "puntos_clave": [
+      "Decálogo de seguridad: 1º peatón, 2º ciclista, 3º conductor.",
+      "Ocupación del centro del carril en calles de sentido único para evitar ángulos muertos.",
+      "Circulación respetuosa y silenciosa en zonas comerciales del centro histórico."
+    ],
+    "evidencias": ["Vídeos promocionales", "Fotografías en calles principales", "Impacto vecinal"]
+  },
+  {
+    "id": "ven-al-insti-en-bici",
+    "numero": 8,
+    "titulo": "Campaña y Concurso: «Ven al Insti en Bici»",
+    "subtitulo": "Competición y motivación diaria para desplazamientos limpios",
+    "periodo": "Abril - Mayo (20-25 y 25-26)",
+    "participantes": "2º y 3º ESO (dinamizadores)",
+    "publico_objetivo": "Todo el alumnado y profesorado del IES",
+    "categoria": "concurso",
+    "badge": "Concurso Escolar",
+    "imagen": "assets/images/cartel-ven-al-insti.jpg",
+    "descripcion": "Campaña interaulas para premiar la constancia en el transporte sostenible. El alumnado pegó cartelería y visitó cada aula, mientras el personal de conserjería realizaba el cómputo diario de bicicletas estacionadas.",
+    "puntos_clave": [
+      "Cartel oficial seleccionado diseñado por Yaiza Rodríguez (3º ESO).",
+      "Control de asistencia ciclista coordinado con el PAS.",
+      "Premios: timbres, candados de seguridad, juegos de luces y plaza de aparcamiento VIP."
+    ],
+    "evidencias": ["Cartel original de Yaiza Rodríguez", "Planillas diarias de conserjería"]
+  },
+  {
+    "id": "dia-mundial-bicicleta",
+    "numero": 9,
+    "titulo": "Día Mundial de la Bicicleta (3 de Junio)",
+    "subtitulo": "Celebración de efemérides y entrega de premios",
+    "periodo": "3 de Junio (20-25 y 25-26)",
+    "participantes": "3º ESO y alumnado participante",
+    "publico_objetivo": "Toda la comunidad escolar",
+    "categoria": "celebracion",
+    "badge": "3 de Junio",
+    "imagen": "assets/images/cartel-rollup.jpg",
+    "descripcion": "Jornada festiva con dinámicas de destreza ciclista, salidas por el entorno periurbano de Utrera y entrega solemne de diplomas y accesorios a los ganadores del concurso 'Ven al insti en bici'.",
+    "puntos_clave": [
+      "Visibilización de la bicicleta como aliada de la salud física y mental.",
+      "Reconocimiento público al esfuerzo continuado de los estudiantes.",
+      "Lona conmemorativa oficial del evento."
+    ],
+    "evidencias": ["Lona promocional", "Diplomas concedidos", "Registro en prensa local"]
+  },
+  {
+    "id": "entrevistas-calle",
+    "numero": 10,
+    "titulo": "Entrevistas a Pie de Calle e Investigación Social",
+    "subtitulo": "Pulsando la opinión de la ciudadanía utrerana",
+    "periodo": "2º Trimestre (24-25 y 25-26)",
+    "participantes": "Alumnado de 1º a 4º ESO",
+    "publico_objetivo": "Vecindario, comerciantes y viandantes de Utrera",
+    "categoria": "investigacion",
+    "badge": "Sociología Urbana",
+    "imagen": "assets/images/triptico-interior.jpg",
+    "descripcion": "El alumnado salió micrófono y cuestionario en mano a plazas y calles de Utrera para entrevistar a los ciudadanos sobre su percepción de los carriles bici, los problemas de tráfico y sus hábitos de movilidad.",
+    "puntos_clave": [
+      "Detección de resistencias al cambio y miedos a la convivencia ciclista.",
+      "Identificación de puntos negros percibidos por los propios peatones.",
+      "Tratamiento estadístico interdisciplinar de datos en la materia de Matemáticas."
+    ],
+    "evidencias": ["Cuestionarios tabulados", "Conclusiones analíticas", "Grabaciones sonoras"]
+  },
+  {
+    "id": "movilidades-internacionales",
+    "numero": 11,
+    "titulo": "Movilidades Internacionales Erasmus+",
+    "subtitulo": "Dimensión europea: Soest, Roma, Maastricht y Berlín",
+    "periodo": "Curso 2024-25 y 2025-26",
+    "participantes": "3º ESO, 1º Bachillerato y Profesorado",
+    "publico_objetivo": "Comunidad educativa y redes europeas",
+    "categoria": "europa",
+    "badge": "Erasmus+",
+    "imagen": "assets/images/movilidad-europa.jpg",
+    "descripcion": "Estudio directo de ciudades con sólida cultura ciclista. En Roma conocieron talleres populares y cicloficinas; en Soest (Alemania) analizaron la Radstation de SEN y el modelo de inserción laboral para refugiados y personas con discapacidad; en Maastricht realizaron job shadowing.",
+    "puntos_clave": [
+      "Contacto con activistas del ciclismo urbano como Loreto Valente (Roma).",
+      "Inspiración directa para la creación del Ciclotaller Bartali tras visitar talleres populares italianos.",
+      "Entrevistas a responsables del Ayuntamiento de Münster sobre políticas modales."
+    ],
+    "evidencias": ["Vídeos en canal Bring Your Bike", "Artículos en web institucional", "Juegos INFATUR"]
+  },
+  {
+    "id": "visita-ayuntamiento-futuro",
+    "numero": 12,
+    "titulo": "Recepción en el Ayuntamiento y Horizonte Futuro",
+    "subtitulo": "Donación del mapa a la ciudad y próximas líneas de trabajo",
+    "periodo": "Octubre 2025 (Erasmus Days) y cursos siguientes",
+    "participantes": "40 estudiantes y 4 docentes",
+    "publico_objetivo": "Corporación municipal (Movilidad, Educación, Turismo) y Utrera",
+    "categoria": "institucional",
+    "badge": "Legado y Futuro",
+    "imagen": "assets/images/visita-ayuntamiento.jpg",
+    "descripcion": "Durante los Erasmus Days de octubre de 2025, una masa crítica de 40 estudiantes llegó al Ayuntamiento de Utrera, donde presentaron sus conclusiones y donaron a los concejales el mapa de carriles bici investigado. Para el futuro se proyecta el cálculo de huella de carbono y la decoración artística del parking con Escuela-Museo.",
+    "puntos_clave": [
+      "Presentación directa por el alumnado ante las autoridades municipales.",
+      "Entrega del mapa interactivo como bien público ciudadano.",
+      "Líneas de futuro: contabilidad de km ahorrados, medición de huella CO2 e integración bilingüe y artística."
+    ],
+    "evidencias": ["Crónica en Utrera Digital y Cope Utrera", "Fotografía en el patio consistorial", "Mapa donado"]
+  }
+]
+

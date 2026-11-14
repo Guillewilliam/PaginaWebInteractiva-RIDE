@@ -1,0 +1,291 @@
+/* ========================================================
+   PROYECTO RIDE — PONTE EN MARCHA | IES JOSÉ MARÍA INFANTES
+   STYLES.CSS — Tokens, Reset, Layout Base y Header HUD
+   ======================================================== */
+
+:root {
+  /* Paleta Oficial RIDE */
+  --ride-green: #1e824c;
+  --ride-green-light: #2ecc71;
+  --ride-green-subtle: #e8f8f0;
+  
+  --ride-blue: #003399;
+  --ride-blue-light: #2980b9;
+  --ride-blue-subtle: #ebf5fb;
+
+  --ride-yellow: #f1c40f;
+  --ride-yellow-dark: #d4ac0d;
+  --ride-yellow-subtle: #fef9e7;
+
+  /* Colores de Vías Ciclistas (Metodología de la Memoria) */
+  --via-verde: #27ae60;
+  --via-azul: #2980b9;
+  --via-rojo: #e74c3c;
+  --via-negro: #1c2833;
+
+  /* Neutros & Superficies */
+  --bg-page: #f4f6f8;
+  --bg-card: #ffffff;
+  --bg-glass: rgba(255, 255, 255, 0.92);
+  --bg-glass-dark: rgba(26, 32, 44, 0.88);
+  
+  --text-primary: #1f2937;
+  --text-secondary: #4b5563;
+  --text-muted: #6b7280;
+  --text-light: #f9fafb;
+
+  --border-light: #e5e7eb;
+  --border-card: rgba(0, 0, 0, 0.08);
+
+  /* Sombras y Elevaciones */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.07);
+  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 28px rgba(0, 0, 0, 0.14);
+  --shadow-float: 0 14px 38px rgba(0, 0, 0, 0.18);
+
+  /* Tipografías */
+  --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Transiciones y radios */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+
+  --header-height: 70px;
+}
+
+/* CSS RESET */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  font-family: var(--font-body);
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ========================================================
+   HEADER / HUD SUPERIOR
+   ======================================================== */
+.app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-height);
+  background: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  z-index: 1000;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Logo & Marca */
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  text-align: left;
+  transition: opacity var(--transition-fast);
+}
+
+.logo-btn:hover {
+  opacity: 0.9;
+}
+
+.ride-logo {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 2px solid var(--ride-green);
+  box-shadow: var(--shadow-sm);
+  object-fit: cover;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+  color: var(--ride-blue);
+}
+
+.brand-accent {
+  color: var(--ride-green);
+}
+
+.brand-subtitle {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* Header Centro: Eslogan Ticker */
+.header-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 0 1rem;
+}
+
+.slogan-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.9rem;
+  background: var(--ride-green-subtle);
+  border: 1px solid rgba(39, 174, 96, 0.25);
+  border-radius: var(--radius-full);
+  color: var(--ride-green);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.slogan-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--ride-green);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.3);
+  animation: pulse-dot 2.5s infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.7; }
+}
+
+/* Header Derecha: Navegación */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-full);
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: transparent;
+  transition: all var(--transition-fast);
+  border: 1px solid transparent;
+}
+
+.nav-btn:hover {
+  background: rgba(0, 0, 0, 0.04);
+  color: var(--text-primary);
+}
+
+.nav-btn.active {
+  background: var(--ride-blue);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 51, 153, 0.25);
+}
+
+.badge-count {
+  display: inline-block;
+  background: var(--ride-yellow);
+  color: #000;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.1rem 0.4rem;
+  border-radius: 10px;
+}
+
+.mobile-menu-btn {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.mobile-menu-btn span {
+  width: 22px;
+  height: 2px;
+  background-color: var(--text-primary);
+  border-radius: 2px;
+  transition: transform 0.3s;
+}
+
+/* ========================================================
+   MAIN VIEWPORT
+   ======================================================== */
+.main-viewport {
+  position: absolute;
+  top: var(--header-height);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  display: flex;
+}
+

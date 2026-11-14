@@ -1,0 +1,91 @@
+{
+  "taller": {
+    "nombre": "Ciclotaller Solidario Bartali",
+    "centro": "IES José María Infantes («El Pastorcito»)",
+    "localidad": "Utrera, Sevilla",
+    "homenaje": "Gino Bartali, legendario ciclista italiano y héroe silencioso de la Resistencia durante la Segunda Guerra Mundial, que salvó a cientos de personas transportando documentos falsificados en los tubos de su bicicleta.",
+    "datos_clave": {
+      "bicicletas_donadas": 50,
+      "bicicletas_en_prestamo": 9,
+      "espacio": "Antiguo almacén del instituto transformado en taller mecánico",
+      "horario": "Recreos activos y talleres extracurriculares",
+      "financiacion_apoyo": "Herramientas y accesorios con apoyo del programa Erasmus+ y donaciones familiares"
+    },
+    "filosofia": "Solidaridad, economía circular, aprendizaje intergeneracional y derecho a la movilidad activa para todo el alumnado."
+  },
+  "bicicletas": [
+    {
+      "numero": 1,
+      "nombre": "Bicicleta Nº 1",
+      "leyenda": "Bicicleta salvada del olvido por el alumnado de El Pastorcito",
+      "tipo": "Paseo / Urbana",
+      "estado": "Operativa en préstamo",
+      "color_tag": "#27ae60"
+    },
+    {
+      "numero": 2,
+      "nombre": "Bicicleta Nº 2",
+      "leyenda": "Bicicleta resucitada por el alumnado del José María Infantes",
+      "tipo": "Montaña / Polivalente",
+      "estado": "Operativa en préstamo",
+      "color_tag": "#2980b9"
+    },
+    {
+      "numero": 3,
+      "nombre": "Bicicleta Nº 3",
+      "leyenda": "Bicicleta rescatada de la obsolescencia por el alumnado de El Pastorcito",
+      "tipo": "Juvenil / Urbana",
+      "estado": "Operativa en préstamo",
+      "color_tag": "#8e44ad"
+    },
+    {
+      "numero": 4,
+      "nombre": "Bicicleta Nº 4",
+      "leyenda": "Del rincón del olvido a las calles del futuro gracias al alumnado de El Pastorcito",
+      "tipo": "Clásica restaurada",
+      "estado": "Operativa en préstamo",
+      "color_tag": "#d35400"
+    },
+    {
+      "numero": 5,
+      "nombre": "Bicicleta Nº 5",
+      "leyenda": "Donde algunos veían un trasto otros vieron una segunda oportunidad",
+      "tipo": "Paseo mixta",
+      "estado": "Operativa en préstamo",
+      "color_tag": "#16a085"
+    },
+    {
+      "numero": 6,
+      "nombre": "Bicicleta Nº 6",
+      "leyenda": "De chatarra a compañera de aventuras gracias al alumnado de El Pastorcito",
+      "tipo": "All-Road / Ciudad",
+      "estado": "Operativa en préstamo",
+      "color_tag": "#2c3e50"
+    },
+    {
+      "numero": 7,
+      "nombre": "Bicicleta Nº 7",
+      "leyenda": "Una segunda vida sobre ruedas gracias al esfuerzo del alumnado de El Pastorcito",
+      "tipo": "Urbana dinámica",
+      "estado": "Operativa en préstamo",
+      "color_tag": "#c0392b"
+    },
+    {
+      "numero": 8,
+      "nombre": "Bicicleta Nº 8",
+      "leyenda": "Esta bicicleta volvió a rodar gracias al trabajo del alumnado de El Pastorcito",
+      "tipo": "Ciudad / Confort",
+      "estado": "Operativa en préstamo",
+      "color_tag": "#f39c12"
+    },
+    {
+      "numero": 9,
+      "nombre": "Bicicleta Nº 9",
+      "leyenda": "Bicicleta rescatada del abandono gracias al alumnado de El Pastorcito",
+      "tipo": "Paseo Vintage",
+      "estado": "Operativa en préstamo",
+      "color_tag": "#27ae60"
+    }
+  ]
+}
+

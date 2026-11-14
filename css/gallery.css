@@ -1,0 +1,441 @@
+/* ========================================================
+   PROYECTO RIDE — PONTE EN MARCHA | IES JOSÉ MARÍA INFANTES
+   GALLERY.CSS — Álbum Editorial Scrapbook, Bitácora y Lightbox
+   ======================================================== */
+
+.gallery-view-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at top left, #fdfbf7, #f3f0e8);
+  z-index: 950;
+  overflow-y: auto;
+  animation: fade-in 0.3s ease-out;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.gallery-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 2rem 2rem 5rem;
+}
+
+/* Encabezado Editorial */
+.gallery-topbar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px dashed rgba(30, 130, 76, 0.2);
+}
+
+.gallery-header-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ride-green);
+  background: var(--ride-green-subtle);
+  border: 1px solid rgba(39, 174, 96, 0.25);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 0.5rem;
+  width: fit-content;
+}
+
+.gallery-main-title {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #1a202c;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.gallery-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  max-width: 720px;
+  margin-top: 0.4rem;
+  line-height: 1.5;
+}
+
+.gallery-close-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.4rem;
+  background: var(--ride-blue);
+  color: #ffffff;
+  border-radius: var(--radius-full);
+  font-size: 0.88rem;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 51, 153, 0.25);
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.gallery-close-btn:hover {
+  background: #002266;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 51, 153, 0.35);
+}
+
+/* Filtros de la Galería */
+.gallery-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2.5rem;
+  padding: 0.4rem;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  width: fit-content;
+}
+
+.gal-filter-btn {
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: transparent;
+  border: 1px solid transparent;
+  transition: all var(--transition-fast);
+}
+
+.gal-filter-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--text-primary);
+}
+
+.gal-filter-btn.active {
+  background: var(--ride-green);
+  color: #ffffff;
+  border-color: var(--ride-green);
+  box-shadow: 0 2px 8px rgba(39, 174, 96, 0.3);
+}
+
+/* ========================================================
+   GRILLA EDITORIAL / SCRAPBOOK DE FOTOGRAFÍAS
+   ======================================================== */
+.gallery-editorial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+/* Tarjeta Estilo Polaroid / Diario de Viaje */
+.photo-polaroid-card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 4px;
+  padding: 0.9rem 0.9rem 1.4rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: all var(--transition-smooth);
+}
+
+/* Efecto de cinta adhesiva washi tape decorativa */
+.photo-polaroid-card::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 22px;
+  background: rgba(241, 196, 15, 0.65);
+  border-left: 2px dashed rgba(0, 0, 0, 0.15);
+  border-right: 2px dashed rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+
+.photo-polaroid-card:nth-child(even)::before {
+  background: rgba(46, 204, 113, 0.55);
+  transform: translateX(-50%) rotate(-1.5deg);
+}
+
+.photo-polaroid-card:nth-child(3n)::before {
+  background: rgba(52, 152, 219, 0.55);
+  transform: translateX(-50%) rotate(2deg);
+}
+
+.photo-polaroid-card:hover {
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.14);
+}
+
+.photo-media-box {
+  position: relative;
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+  background: #e2e8f0;
+  border-radius: 2px;
+}
+
+.photo-media-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-smooth);
+}
+
+.photo-polaroid-card:hover .photo-media-box img {
+  transform: scale(1.06);
+}
+
+/* Sello de categoría */
+.photo-badge {
+  position: absolute;
+  bottom: 0.6rem;
+  right: 0.6rem;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+  color: #ffffff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.02em;
+}
+
+.photo-meta {
+  padding: 1rem 0.4rem 0.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.photo-title {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.25;
+}
+
+.photo-desc {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+.photo-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.4rem;
+  padding-top: 0.4rem;
+  border-top: 1px dotted rgba(0, 0, 0, 0.1);
+}
+
+.photo-date {
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--ride-green);
+}
+
+.photo-zoom-hint {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+/* Tarjeta Placeholder para actividades en curso */
+.photo-placeholder-card {
+  border: 2px dashed rgba(39, 174, 96, 0.4);
+  background: rgba(255, 255, 255, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  border-radius: var(--radius-md);
+  color: var(--text-muted);
+  gap: 0.8rem;
+}
+
+.placeholder-icon {
+  font-size: 2.5rem;
+}
+
+.placeholder-title {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ride-green);
+}
+
+.placeholder-desc {
+  font-size: 0.82rem;
+  line-height: 1.4;
+  max-width: 260px;
+}
+
+/* ========================================================
+   LIGHTBOX MODAL MEJORADO CON NAVEGACIÓN
+   ======================================================== */
+.lightbox-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(10, 15, 25, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.lightbox-container {
+  position: relative;
+  max-width: 980px;
+  width: 100%;
+  background: #111827;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: modal-pop 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.7rem;
+  z-index: 20;
+  transition: all var(--transition-fast);
+}
+
+.lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+/* Botones Anterior / Siguiente en Lightbox */
+.lightbox-nav-btn {
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  z-index: 15;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.lightbox-nav-btn:hover {
+  background: var(--ride-blue);
+  border-color: var(--ride-blue);
+}
+
+.lightbox-prev { left: 1rem; }
+.lightbox-next { right: 1rem; }
+
+.lightbox-media-wrap {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000000;
+}
+
+.lightbox-img {
+  max-width: 100%;
+  max-height: 60vh;
+  object-fit: contain;
+}
+
+.lightbox-info {
+  padding: 1.25rem 2rem;
+  background: #111827;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.lightbox-meta-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.35rem;
+}
+
+.lightbox-category {
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--ride-yellow);
+  letter-spacing: 0.04em;
+}
+
+.lightbox-counter {
+  font-size: 0.74rem;
+  color: #9ca3af;
+  font-weight: 600;
+}
+
+.lightbox-title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.4rem;
+}
+
+.lightbox-desc {
+  font-size: 0.88rem;
+  color: #d1d5db;
+  line-height: 1.5;
+}

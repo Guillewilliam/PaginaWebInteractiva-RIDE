@@ -1,0 +1,557 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "eje-consolacion",
+        "name": "Eje Verde Paseo de Consolación",
+        "categoria": "verde",
+        "tipo_fuente": "oficial_documentada",
+        "distancia_km": 1.25,
+        "dificultad": "baja",
+        "barrio_origen": "Consolación / Parque",
+        "destino": "Plaza de la Trianilla / Centro",
+        "descripcion": "Carril bici continuo, totalmente segregado y protegido entre la doble hilera de plátanos de sombra. Es el eje ciclista recreativo y escolar más seguro y emblemático de Utrera.",
+        "evidencia_memoria": "Mapeado por el alumnado en Google Earth como tramo VERDE de máxima seguridad (Pág. 10).",
+        "consejos_decalogo": "No toques el timbre a las personas que crucen: pueden ser mayores o niños con menor agilidad. Modera la velocidad en los cruces transversales."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -5.7612,
+            37.1895
+          ],
+          [
+            -5.7645,
+            37.1882
+          ],
+          [
+            -5.7682,
+            37.1868
+          ],
+          [
+            -5.7715,
+            37.1856
+          ],
+          [
+            -5.7745,
+            37.1855
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "puerta-verde-utrera",
+        "name": "Puerta Verde de Utrera (Vía Verde Sur)",
+        "categoria": "verde",
+        "tipo_fuente": "oficial_documentada",
+        "distancia_km": 1.6,
+        "dificultad": "baja",
+        "barrio_origen": "Extrarradio Sur / Corredor Verde",
+        "destino": "Ronda Sur / C. San Juan Bosco",
+        "descripcion": "Vía ciclista protegida y corredor periurbano conectado con la red andaluza de puertas verdes. Trazado llano y segregado utilizado en las salidas didácticas de educación física.",
+        "evidencia_memoria": "Vía protegida conectora con el entorno natural documentada en la memoria (Págs. 10 y 16).",
+        "consejos_decalogo": "Mantén la distancia de seguridad entre compañeros y señaliza con el brazo antes de reducir la marcha o detenerte."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -5.7802,
+            37.1648
+          ],
+          [
+            -5.7794,
+            37.1685
+          ],
+          [
+            -5.7788,
+            37.1712
+          ],
+          [
+            -5.7779,
+            37.1743
+          ],
+          [
+            -5.777,
+            37.1765
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "eje-av-portugal",
+        "name": "Eje Avenida de Portugal (Acera-Bici)",
+        "categoria": "azul",
+        "tipo_fuente": "oficial_documentada",
+        "distancia_km": 1.1,
+        "dificultad": "media",
+        "barrio_origen": "Sector Noreste",
+        "destino": "Conexión Antonio Machado",
+        "descripcion": "Carril señalizado sobre el acerado peatonal. Conecta barrios residenciales del este con los accesos al IES José María Infantes, aunque requiere especial atención con peatones y accesos a garajes.",
+        "evidencia_memoria": "Clasificado en la memoria como carril AZUL sobre acera (Pág. 10).",
+        "consejos_decalogo": "Aplica la norma de vulnerabilidad: 1º peatón, 2º ciclista, 3º conductores. En acera-bici, el peatón siempre tiene prioridad."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -5.7628,
+            37.1884
+          ],
+          [
+            -5.7658,
+            37.1876
+          ],
+          [
+            -5.7685,
+            37.1869
+          ],
+          [
+            -5.7705,
+            37.1862
+          ],
+          [
+            -5.7721,
+            37.1852
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "tramo-machado-jilguero",
+        "name": "Calle Antonio Machado y Calle Jilguero (Tramo Solicitado)",
+        "categoria": "negro",
+        "tipo_fuente": "solicitud_municipal",
+        "distancia_km": 0.45,
+        "dificultad": "alta",
+        "barrio_origen": "Avenida de Portugal",
+        "destino": "Acceso IES José María Infantes",
+        "descripcion": "Punto crítico escolar: embudo final de llegada a 'El Pastorcito'. Carece de carril segregado, con vehículos estacionados en ambos márgenes y alta densidad en horas punta. El centro solicitó formalmente al Ayuntamiento la creación de un carril bici aquí.",
+        "evidencia_memoria": "Mencionado expresamente en la memoria como solicitud formal al Ayuntamiento: 'creación de carriles bici en calles clave (Antonio Machado y Jilguero)' (Pág. 10).",
+        "consejos_decalogo": "En calles compartidas de un solo sentido, circula por el centro del carril: es tu derecho y evita el ángulo muerto y la apertura intempestiva de puertas de coches aparcados."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -5.7721,
+            37.1852
+          ],
+          [
+            -5.7719,
+            37.1843
+          ],
+          [
+            -5.77165,
+            37.18385
+          ],
+          [
+            -5.7716,
+            37.18347
+          ],
+          [
+            -5.7708,
+            37.1832
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "zona30-centro",
+        "name": "Red Zona 30 Centro Histórico (Gibaxa - Corredera - Altozano)",
+        "categoria": "rojo",
+        "tipo_fuente": "oficial_documentada",
+        "distancia_km": 1.35,
+        "dificultad": "media",
+        "barrio_origen": "Plaza de Gibaxa / Ayuntamiento",
+        "destino": "Plaza del Altozano / Corredera",
+        "descripcion": "Calzadas pacificadas de coexistencia a velocidad máxima de 30 km/h y prioridad ciclista. Eje recorrido en las Masas Críticas escolares y salidas de entrevistas vecinales.",
+        "evidencia_memoria": "Zonas 30 documentadas en color ROJO en la clasificación metodológica RIDE (Pág. 10).",
+        "consejos_decalogo": "Al cruzar por zonas céntricas y comerciales, circula en silencio y con cortesía. Los ciclistas no interrumpen el tráfico: somos tráfico."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -5.78045,
+            37.18182
+          ],
+          [
+            -5.7812,
+            37.1822
+          ],
+          [
+            -5.7825,
+            37.183
+          ],
+          [
+            -5.7838,
+            37.1842
+          ],
+          [
+            -5.7829,
+            37.1849
+          ],
+          [
+            -5.7816,
+            37.1854
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "r-centro",
+        "name": "Ruta 1: Centro Histórico ➔ IES José María Infantes",
+        "categoria": "rojo",
+        "tipo_fuente": "reconstruccion_orientativa",
+        "distancia_km": 1.4,
+        "dificultad": "media",
+        "barrio_origen": "Centro / Plaza del Altozano",
+        "destino": "IES José María Infantes",
+        "descripcion": "Itinerario escolar desde el núcleo histórico. Transita por calles de plataforma única pacificadas (Álvarez Quintero y María Auxiliadora), conectando hacia Av. de Portugal y el acceso por Calle Antonio Machado.",
+        "evidencia_memoria": "Reconstrucción orientativa basada en los cuadrantes de investigación por barrios diseñados en Google Earth (Págs. 10 y 16).",
+        "consejos_decalogo": "En calles de doble sentido sin carril bici, circula por tu derecha sin pegarte en exceso al bordillo para mantener margen de maniobra."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -5.7825,
+            37.183
+          ],
+          [
+            -5.7815,
+            37.1836
+          ],
+          [
+            -5.7798,
+            37.1844
+          ],
+          [
+            -5.7774,
+            37.1852
+          ],
+          [
+            -5.7745,
+            37.1855
+          ],
+          [
+            -5.7721,
+            37.1852
+          ],
+          [
+            -5.7719,
+            37.1843
+          ],
+          [
+            -5.7716,
+            37.18347
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "r-junquillo",
+        "name": "Ruta 2: El Junquillo / Quinto Centenario ➔ IES José María Infantes",
+        "categoria": "verde",
+        "tipo_fuente": "reconstruccion_orientativa",
+        "distancia_km": 1.75,
+        "dificultad": "baja",
+        "barrio_origen": "El Junquillo / Parque V Centenario",
+        "destino": "IES José María Infantes",
+        "descripcion": "Ruta desde el noreste residencial de Utrera. Desciende desde el Parque del Quinto Centenario y el Junquillo cruzando por vías protegidas y residenciales hasta conectar con el Paseo de Consolación y el instituto.",
+        "evidencia_memoria": "Ruta de barrio hacia el centro documentada en los grupos de trabajo de 3º ESO (Pág. 10).",
+        "consejos_decalogo": "Aprovecha los tramos del Parque de Consolación para pedalear a ritmo constante y seguro alejado de humos y coches."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -5.7601,
+            37.1952
+          ],
+          [
+            -5.7588,
+            37.1915
+          ],
+          [
+            -5.758,
+            37.187
+          ],
+          [
+            -5.7628,
+            37.1884
+          ],
+          [
+            -5.7658,
+            37.1876
+          ],
+          [
+            -5.7685,
+            37.1869
+          ],
+          [
+            -5.7715,
+            37.1856
+          ],
+          [
+            -5.7719,
+            37.1843
+          ],
+          [
+            -5.7716,
+            37.18347
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "r-renfe",
+        "name": "Ruta 3: Estación Renfe / El Arenal ➔ IES José María Infantes",
+        "categoria": "rojo",
+        "tipo_fuente": "reconstruccion_orientativa",
+        "distancia_km": 1.85,
+        "dificultad": "media",
+        "barrio_origen": "Estación Renfe / El Arenal",
+        "destino": "IES José María Infantes",
+        "descripcion": "Conexión transversal oeste-este desde el nodo de transporte intermodal y la barriada del Arenal. Atraviesa las avenidas céntricas por zonas pacificadas hasta alcanzar el IES.",
+        "evidencia_memoria": "Itinerario escolar transversal mapeado para estudiantes procedentes de barrios occidentales (Pág. 10).",
+        "consejos_decalogo": "Al cruzar intersecciones semaforizadas cerca de la estación, ponte en lugar visible para los autobuses y no adelantes por la derecha."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -5.7876,
+            37.1821
+          ],
+          [
+            -5.7852,
+            37.1825
+          ],
+          [
+            -5.7825,
+            37.183
+          ],
+          [
+            -5.7798,
+            37.1844
+          ],
+          [
+            -5.777,
+            37.1836
+          ],
+          [
+            -5.774,
+            37.1834
+          ],
+          [
+            -5.7716,
+            37.18347
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "r-militares",
+        "name": "Ruta 4: Los Militares / Campo Verde / La Fontanilla ➔ IES",
+        "categoria": "azul",
+        "tipo_fuente": "reconstruccion_orientativa",
+        "distancia_km": 1.2,
+        "dificultad": "baja",
+        "barrio_origen": "Los Militares / Campo Verde",
+        "destino": "IES José María Infantes",
+        "descripcion": "Itinerario de aproximación desde el sur de Utrera. Utiliza viales residenciales tranquilos de La Fontanilla y Campo Verde para acceder directamente por el flanco sur de Calle Jilguero sin necesidad de cruzar arterias de gran tráfico.",
+        "evidencia_memoria": "Distrito sur mapeado por el alumnado ciclista (Pág. 10).",
+        "consejos_decalogo": "Revisa la presión de los neumáticos y el funcionamiento de los frenos antes de salir de casa cada mañana."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -5.77,
+            37.177
+          ],
+          [
+            -5.771,
+            37.1792
+          ],
+          [
+            -5.7718,
+            37.1812
+          ],
+          [
+            -5.7715,
+            37.1825
+          ],
+          [
+            -5.7716,
+            37.18347
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "r-molinos",
+        "name": "Ruta 5: Los Molinos / Las Torres ➔ IES José María Infantes",
+        "categoria": "azul",
+        "tipo_fuente": "reconstruccion_orientativa",
+        "distancia_km": 1.65,
+        "dificultad": "media",
+        "barrio_origen": "Los Molinos / Las Torres",
+        "destino": "IES José María Infantes",
+        "descripcion": "Ruta desde el norte de la ciudad. Desciende desde Las Torres por la Avenida Juan XXIII y la zona de La Trianilla, enlazando con el carril de Consolación hacia Calle Jilguero.",
+        "evidencia_memoria": "Reconstrucción orientativa correspondiente al cuadrante norte de la captura cartográfica (Pág. 10).",
+        "consejos_decalogo": "Usa casco reglamentario en todos los trayectos urbanos e interurbanos y viste prendas reflectantes o claras."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -5.781,
+            37.191
+          ],
+          [
+            -5.7785,
+            37.1892
+          ],
+          [
+            -5.776,
+            37.1875
+          ],
+          [
+            -5.7745,
+            37.1855
+          ],
+          [
+            -5.7721,
+            37.1852
+          ],
+          [
+            -5.7719,
+            37.1843
+          ],
+          [
+            -5.7716,
+            37.18347
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "r-masa",
+        "name": "Ruta Masa Crítica Institucional: IES ➔ Ayuntamiento",
+        "categoria": "azul",
+        "tipo_fuente": "oficial_documentada",
+        "distancia_km": 1.8,
+        "dificultad": "baja",
+        "barrio_origen": "IES José María Infantes",
+        "destino": "Ayuntamiento de Utrera (Plaza de Gibaxa)",
+        "descripcion": "Recorrido oficial de la Masa Crítica con hasta 59 alumnos y 4 docentes, repetido en los Erasmus Days de octubre de 2025 para la entrega de los mapas a los concejales en el consistorio.",
+        "evidencia_memoria": "Masa Crítica oficial documentada con fotografías de la marcha y la recepción en el patio del Ayuntamiento (Págs. 10, 11 y 12).",
+        "consejos_decalogo": "No somos una manifestación ni una protesta: somos tráfico responsable. Mostremos una actitud cortés que deje el nombre del instituto bien alto."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -5.7716,
+            37.18347
+          ],
+          [
+            -5.7719,
+            37.1843
+          ],
+          [
+            -5.7721,
+            37.1852
+          ],
+          [
+            -5.7745,
+            37.1855
+          ],
+          [
+            -5.7774,
+            37.1852
+          ],
+          [
+            -5.7798,
+            37.1844
+          ],
+          [
+            -5.7815,
+            37.1836
+          ],
+          [
+            -5.7825,
+            37.183
+          ],
+          [
+            -5.7812,
+            37.1822
+          ],
+          [
+            -5.78045,
+            37.18182
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "punto-negro-rotonda-a394",
+        "name": "Punto Negro: Glorieta Acceso A-394 Este",
+        "categoria": "negro",
+        "tipo_fuente": "solicitud_municipal",
+        "distancia_km": 0.25,
+        "dificultad": "alta",
+        "barrio_origen": "A-394 / Ronda Este",
+        "destino": "Conexión Av. Portugal",
+        "descripcion": "Intersección peligrosa con velocidad excesiva de incorporación desde la carretera A-394 y falta de continuidad de la vía ciclista hacia el casco urbano.",
+        "evidencia_memoria": "Incluido en el informe de detección de puntos peligrosos entregado a Urbanismo (Págs. 10 y 16).",
+        "consejos_decalogo": "Precaución extrema: detente completamente y asegúrate de que los conductores te han visto antes de entrar a la rotonda."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -5.7595,
+            37.1868
+          ],
+          [
+            -5.7605,
+            37.1865
+          ],
+          [
+            -5.762,
+            37.1866
+          ]
+        ]
+      }
+    }
+  ]
+}

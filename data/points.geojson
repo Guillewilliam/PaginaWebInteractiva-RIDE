@@ -1,0 +1,165 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "poi-ies",
+        "name": "IES José María Infantes («El Pastorcito»)",
+        "tipo": "instituto",
+        "categoria": "centro_educativo",
+        "icono": "🏫",
+        "descripcion": "Epicentro de la campaña RIDE. Cuenta con aparcabicis interior y sede del Ciclotaller Solidario Bartali.",
+        "direccion": "Calle Jilguero, s/n, 41710 Utrera (Sevilla)",
+        "coordenadas_str": "37.1835° N, -5.7716° O"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -5.7716,
+          37.18347
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "poi-ayuntamiento",
+        "name": "Ayuntamiento de Utrera",
+        "tipo": "institucional",
+        "categoria": "administracion",
+        "icono": "🏛️",
+        "descripcion": "Llegada de la Masa Crítica y recepción institucional con entrega de mapas en los Erasmus Days (octubre 2025).",
+        "direccion": "Plaza de Gibaxa, 1",
+        "coordenadas_str": "37.1818° N, -5.7805° O"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -5.78045,
+          37.18182
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "poi-bartali",
+        "name": "Ciclotaller Solidario Bartali",
+        "tipo": "taller",
+        "categoria": "taller_solidario",
+        "icono": "🔧",
+        "descripcion": "Antiguo almacén del instituto transformado en taller de reparación. Casi 50 bicis donadas y 9 en préstamo activo.",
+        "direccion": "Recinto interior IES José María Infantes",
+        "coordenadas_str": "37.1836° N, -5.7714° O"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -5.7714,
+          37.1836
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "poi-consolacion",
+        "name": "Parque y Paseo de Consolación",
+        "tipo": "parque",
+        "categoria": "espacio_verde",
+        "icono": "🌳",
+        "descripcion": "Gran paseo arbolado con carril bici protegido segregado. Espacio central de esparcimiento ciclista.",
+        "direccion": "Paseo de Consolación, s/n",
+        "coordenadas_str": "37.1895° N, -5.7612° O"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -5.7612,
+          37.1895
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "poi-v-centenario",
+        "name": "Parque del Quinto Centenario",
+        "tipo": "parque",
+        "categoria": "espacio_verde",
+        "icono": "🌲",
+        "descripcion": "Espacio verde del sector noreste de Utrera, punto de inicio de la Ruta Escolar 2 hacia el IES.",
+        "direccion": "Avenida del V Centenario",
+        "coordenadas_str": "37.1952° N, -5.7601° O"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -5.7601,
+          37.1952
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "poi-renfe",
+        "name": "Estación de Tren Renfe Utrera",
+        "tipo": "transporte",
+        "categoria": "intermodal",
+        "icono": "🚆",
+        "descripcion": "Nodo intermodal de cercanías y media distancia. Origen de la Ruta Escolar 3.",
+        "direccion": "Plaza de la Estación, s/n",
+        "coordenadas_str": "37.1821° N, -5.7876° O"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -5.7876,
+          37.1821
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "poi-altozano",
+        "name": "Plaza del Altozano",
+        "tipo": "plaza",
+        "categoria": "centro_historico",
+        "icono": "⛲",
+        "descripcion": "Corazón neurálgico del centro de Utrera y zona pacificada peatonal y ciclista.",
+        "direccion": "Plaza del Altozano",
+        "coordenadas_str": "37.1830° N, -5.7825° O"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -5.7825,
+          37.183
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "poi-punto-negro-1",
+        "name": "Tramo Peligroso: Confluencia Machado - Jilguero",
+        "tipo": "peligro",
+        "categoria": "punto_negro",
+        "icono": "⚠️",
+        "descripcion": "Acceso al instituto sin carril bici con coches en doble fila. Solicitado carril segregado al Ayuntamiento.",
+        "direccion": "C. Antonio Machado con C. Jilguero",
+        "coordenadas_str": "37.1838° N, -5.7722° O"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -5.7722,
+          37.1838
+        ]
+      }
+    }
+  ]
+}

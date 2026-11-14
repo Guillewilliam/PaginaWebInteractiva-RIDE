@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RIDE — Ponte en Marcha | IES José María Infantes (Utrera)</title>
+  
+  <!-- Favicon / Meta -->
+  <link rel="icon" type="image/jpeg" href="assets/images/logo-ride.jpg">
+  <meta name="description" content="RIDE: Respeto, Inclusión, Diversión y Entorno. Campaña de movilidad sostenible y cartografía ciclista del IES José María Infantes de Utrera (Sevilla).">
+
+  <!-- Google Fonts: Outfit & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+  <!-- Project Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/map.css">
+  <link rel="stylesheet" href="css/panels.css">
+  <link rel="stylesheet" href="css/gallery.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="app-body">
+
+  <!-- TOP HUD / HEADER BAR -->
+  <header class="app-header" id="app-header">
+    <div class="header-left">
+      <button class="logo-btn" id="btn-home" title="RIDE — Ponte en Marcha">
+        <img src="assets/images/logo-ride.jpg" alt="Logo RIDE" class="ride-logo">
+        <div class="brand-text">
+          <span class="brand-title">RIDE · <span class="brand-accent">Ponte en Marcha</span></span>
+          <span class="brand-subtitle">IES José María Infantes · Utrera</span>
+        </div>
+      </button>
+    </div>
+
+    <!-- Ticker / Slogan -->
+    <div class="header-center">
+      <div class="slogan-badge">
+        <span class="slogan-dot"></span>
+        <span class="slogan-text">«Circula con respeto · Disfruta del camino · Aprende y colabora · Construye tu futuro»</span>
+      </div>
+    </div>
+
+    <!-- Navigation Pills -->
+    <nav class="header-right" aria-label="Navegación principal">
+      <button class="nav-btn active" id="nav-map" data-view="map">
+        <span class="nav-icon">🗺️</span>
+        <span class="nav-label">Mapa Utrera</span>
+      </button>
+      <button class="nav-btn" id="nav-activities" data-view="activities">
+        <span class="nav-icon">📋</span>
+        <span class="nav-label">12 Actividades</span>
+      </button>
+      <button class="nav-btn" id="nav-bartali" data-view="bartali">
+        <span class="nav-icon">🚲</span>
+        <span class="nav-label">Ciclotaller Bartali</span>
+        <span class="badge-count">9</span>
+      </button>
+      <button class="nav-btn" id="nav-gallery" data-view="gallery">
+        <span class="nav-icon">📸</span>
+        <span class="nav-label">Álbum RIDE</span>
+      </button>
+      <button class="nav-btn" id="nav-memoria" data-modal="modal-memoria" title="Memoria, Objetivos y Créditos">
+        <span class="nav-icon">📄</span>
+        <span class="nav-label">Memoria</span>
+      </button>
+      <button class="nav-btn" id="nav-ies" data-modal="modal-ies" title="Información del IES José María Infantes">
+        <span class="nav-icon">🏛️</span>
+        <span class="nav-label">El Centro</span>
+      </button>
+    </nav>
+
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Abrir menú">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <!-- MAIN VIEWPORT CONTAINER -->
+  <main class="main-viewport" id="main-viewport">
+
+    <!-- MAP VIEW CONTAINER -->
+    <div class="map-view-container" id="map-view">
+      <!-- LEAFLET MAP ELEMENT -->
+      <div id="map" class="map-canvas"></div>
+
+      <!-- FLOATING TOOLBAR: LAYER SWITCHER & CONTROLS -->
+      <div class="map-controls-floating">
+        <div class="control-group layer-group">
+          <button class="map-tool-btn active" id="btn-layer-sat" data-layer="sat" title="Vista aérea realista (Satélite)">
+            <span class="tool-icon">🛰️</span>
+            <span class="tool-text">Vista Aérea</span>
+          </button>
+          <button class="map-tool-btn" id="btn-layer-streets" data-layer="streets" title="Vista cartográfica callejero (OpenStreetMap)">
+            <span class="tool-icon">🗺️</span>
+            <span class="tool-text">Callejero</span>
+          </button>
+        </div>
+
+        <div class="control-group action-group">
+          <button class="map-tool-btn" id="btn-center-ies" title="Centrar mapa en el IES José María Infantes">
+            <span class="tool-icon">🎯</span>
+            <span class="tool-text">IES Infantes</span>
+          </button>
+          <button class="map-tool-btn" id="btn-fit-bounds" title="Encuadrar todo el término de Utrera y sus rutas">
+            <span class="tool-icon">🔄</span>
+            <span class="tool-text">Ver Todo</span>
+          </button>
+        </div>
+
+        <!-- ROUTE FOCUS DROPDOWN -->
+        <div class="control-group route-select-group">
+          <label for="route-selector" class="sr-only">Seleccionar Recorrido</label>
+          <select id="route-selector" class="route-select">
+            <option value="all">🌐 Todos los recorridos</option>
+            <optgroup label="Tramos Oficiales Documentados">
+              <option value="eje-consolacion">🌳 Eje Verde Paseo de Consolación</option>
+              <option value="puerta-verde-utrera">🌿 Puerta Verde de Utrera (Vía Verde Sur)</option>
+              <option value="eje-av-portugal">🚲 Eje Avenida de Portugal (Acera-Bici)</option>
+              <option value="zona30-centro">🏛️ Red Zona 30 Centro Histórico</option>
+              <option value="tramo-machado-jilguero">⚠️ C. Antonio Machado y Jilguero (Solicitado)</option>
+            </optgroup>
+            <optgroup label="Rutas Escolares Reconstruidas por Barrios">
+              <option value="r-centro">📍 Ruta 1: Centro Histórico ➔ IES</option>
+              <option value="r-junquillo">📍 Ruta 2: El Junquillo / V Centenario ➔ IES</option>
+              <option value="r-renfe">📍 Ruta 3: Estación Renfe / El Arenal ➔ IES</option>
+              <option value="r-militares">📍 Ruta 4: Los Militares / Fontanilla ➔ IES</option>
+              <option value="r-molinos">📍 Ruta 5: Los Molinos / Las Torres ➔ IES</option>
+              <option value="r-masa">🚴 Masa Crítica: IES ➔ Ayuntamiento</option>
+            </optgroup>
+          </select>
+        </div>
+      </div>
+
+      <!-- FLOATING PERMANENT LEGEND -->
+      <aside class="map-legend-card" id="map-legend">
+        <div class="legend-header">
+          <div class="legend-title">
+            <span class="legend-icon">🚲</span>
+            <span>Clasificación de Vías</span>
+          </div>
+          <button class="legend-collapse-btn" id="btn-toggle-legend" title="Minimizar leyenda">−</button>
+        </div>
+        <div class="legend-body" id="legend-body">
+          <p class="legend-caption">Metodología RIDE (Inspirada en pistas de esquí):</p>
+          
+          <label class="legend-item" data-layer-toggle="verde">
+            <input type="checkbox" checked id="toggle-verde">
+            <span class="color-badge color-verde"></span>
+            <span class="item-name">Carril bici protegido</span>
+            <span class="item-sub">Segregado del tráfico</span>
+          </label>
+
+          <label class="legend-item" data-layer-toggle="azul">
+            <input type="checkbox" checked id="toggle-azul">
+            <span class="color-badge color-azul"></span>
+            <span class="item-name">Carril sobre acera</span>
+            <span class="item-sub">Señalizado peatonal</span>
+          </label>
+
+          <label class="legend-item" data-layer-toggle="rojo">
+            <input type="checkbox" checked id="toggle-rojo">
+            <span class="color-badge color-rojo"></span>
+            <span class="item-name">Zona 30 compartida</span>
+            <span class="item-sub">Tráfico pacificado</span>
+          </label>
+
+          <label class="legend-item" data-layer-toggle="negro">
+            <input type="checkbox" checked id="toggle-negro">
+            <span class="color-badge color-negro"></span>
+            <span class="item-name">Tramo peligroso</span>
+            <span class="item-sub">Puntos negros / embudo</span>
+          </label>
+
+          <div class="legend-divider"></div>
+
+          <div class="legend-extra">
+            <div class="legend-marker-item">
+              <span class="marker-dot marker-ies">🏫</span>
+              <span>IES José María Infantes</span>
+            </div>
+            <div class="legend-marker-item">
+              <span class="marker-dot marker-ayto">🏛️</span>
+              <span>Ayuntamiento de Utrera</span>
+            </div>
+            <div class="legend-marker-item">
+              <span class="marker-dot marker-bartali">🔧</span>
+              <span>Ciclotaller Bartali</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- FLOATING CONTEXT CARD (Appears when clicking a route or POI) -->
+      <div class="map-context-card hidden" id="map-context-card">
+        <button class="context-close-btn" id="btn-close-context">&times;</button>
+        <div class="context-card-content" id="context-card-content">
+          <!-- Dynamic content from map interactions -->
+        </div>
+      </div>
+    </div>
+
+    <!-- DRAWER / SLIDE-OVER EXPLORER PANEL -->
+    <aside class="slide-drawer" id="slide-drawer">
+      <div class="drawer-header">
+        <div class="drawer-title-group">
+          <span class="drawer-badge" id="drawer-badge">Explorador</span>
+          <h2 class="drawer-title" id="drawer-title">Actividades del Proyecto RIDE</h2>
+        </div>
+        <button class="drawer-close-btn" id="btn-close-drawer" aria-label="Cerrar panel">&times;</button>
+      </div>
+
+      <div class="drawer-filters" id="drawer-filters">
+        <button class="filter-chip active" data-filter="all">Todas (12)</button>
+        <button class="filter-chip" data-filter="identidad">Identidad</button>
+        <button class="filter-chip" data-filter="educacion">Educación Vial</button>
+        <button class="filter-chip" data-filter="taller">Ciclotaller</button>
+        <button class="filter-chip" data-filter="calle">Masas Críticas</button>
+        <button class="filter-chip" data-filter="ciudadania">Ciudadanía</button>
+        <button class="filter-chip" data-filter="europa">Erasmus+</button>
+      </div>
+
+      <div class="drawer-content" id="drawer-content">
+        <!-- Rendered via activities.js or bartali.js -->
+      </div>
+    </aside>
+
+    <!-- FULLSCREEN MODAL FOR GALLERY (ÁLBUM RIDE) -->
+    <section class="gallery-view-container hidden" id="gallery-view">
+      <div class="gallery-inner">
+        <div class="gallery-topbar">
+          <div>
+            <span class="section-tag">Memoria Gráfica</span>
+            <h2 class="gallery-main-title">Álbum de Experiencias RIDE</h2>
+            <p class="gallery-subtitle">Cada fotografía documenta una vivencia real de movilidad, aprendizaje, taller y ciudadanía en Utrera y Europa.</p>
+          </div>
+          <button class="gallery-close-btn" id="btn-close-gallery">&times; Volver al Mapa</button>
+        </div>
+
+        <div class="gallery-filter-bar">
+          <button class="gal-filter-btn active" data-gal-filter="all">Todas las fotos</button>
+          <button class="gal-filter-btn" data-gal-filter="carteleria">Cartelería & Diseño</button>
+          <button class="gal-filter-btn" data-gal-filter="bartali">Ciclotaller Bartali</button>
+          <button class="gal-filter-btn" data-gal-filter="masacritica">Masa Crítica</button>
+          <button class="gal-filter-btn" data-gal-filter="infatur">INFATUR & Circuito</button>
+          <button class="gal-filter-btn" data-gal-filter="ayuntamiento">Ayuntamiento</button>
+          <button class="gal-filter-btn" data-gal-filter="europa">Erasmus+</button>
+        </div>
+
+        <div class="gallery-editorial-grid" id="gallery-grid">
+          <!-- Populated by gallery.js -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODAL: MEMORIA DEL PROYECTO Y CRÉDITOS -->
+  <div class="app-modal-backdrop hidden" id="modal-memoria">
+    <div class="app-modal-dialog" style="max-width: 780px;">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-kicker">Documentación Oficial</span>
+          <h3 class="modal-title">Memoria de Actividades RIDE — Ponte en Marcha</h3>
+        </div>
+        <button class="modal-close-btn" data-close-modal="modal-memoria">&times;</button>
+      </div>
+      <div class="modal-body">
+        <!-- Pestañas internas de la memoria -->
+        <div class="drawer-filters" style="padding:0; margin-bottom:1rem; border-bottom:1px solid var(--border-light);">
+          <button class="filter-chip active" data-memo-tab="tab-objetivos">Objetivos (3 Dimensiones)</button>
+          <button class="filter-chip" data-memo-tab="tab-saberes">Saberes & Materias</button>
+          <button class="filter-chip" data-memo-tab="tab-multicanal">Difusión Multicanal</button>
+          <button class="filter-chip" data-memo-tab="tab-creditos">Créditos & Licencia</button>
+        </div>
+
+        <!-- TAB 1: OBJETIVOS -->
+        <div class="memo-tab-pane" id="tab-objetivos">
+          <div style="display:flex; flex-direction:column; gap:1rem;">
+            <div style="background:var(--ride-green-subtle); padding:1rem; border-radius:var(--radius-md); border-left:4px solid var(--ride-green);">
+              <h4 style="font-family:var(--font-heading); color:var(--ride-green); margin-bottom:0.3rem;">1. Dimensión Educativa y Didáctica</h4>
+              <ul style="padding-left:1.2rem; font-size:0.84rem; color:var(--text-secondary); line-height:1.5;">
+                <li>Comprender y aplicar las normas básicas de educación vial para una circulación segura y responsable.</li>
+                <li>Analizar la movilidad sostenible desde una perspectiva social, ambiental y europea.</li>
+                <li>Desarrollar competencias digitales mediante herramientas de geolocalización (Google Earth) y creación de contenidos.</li>
+                <li>Fomentar la participación, la inclusión, la solidaridad y el compromiso con el entorno.</li>
+                <li>Expresarse de forma creativa para transmitir mensajes de concienciación social.</li>
+              </ul>
+            </div>
+
+            <div style="background:var(--ride-blue-subtle); padding:1rem; border-radius:var(--radius-md); border-left:4px solid var(--ride-blue);">
+              <h4 style="font-family:var(--font-heading); color:var(--ride-blue); margin-bottom:0.3rem;">2. Dimensión de Movilidad Sostenible</h4>
+              <ul style="padding-left:1.2rem; font-size:0.84rem; color:var(--text-secondary); line-height:1.5;">
+                <li>Valorar la bicicleta como un medio de transporte sostenible, saludable y accesible.</li>
+                <li>Promover los desplazamientos activos y reducir la dependencia del vehículo privado.</li>
+                <li>Fomentar hábitos que contribuyan a la protección del medio ambiente y a la mitigación del cambio climático.</li>
+                <li>Mejorar la seguridad vial y la convivencia entre todos los usuarios de la vía pública.</li>
+              </ul>
+            </div>
+
+            <div style="background:var(--ride-yellow-subtle); padding:1rem; border-radius:var(--radius-md); border-left:4px solid #d4ac0d;">
+              <h4 style="font-family:var(--font-heading); color:#7d6608; margin-bottom:0.3rem;">3. Dimensión de Difusión e Impacto</h4>
+              <ul style="padding-left:1.2rem; font-size:0.84rem; color:var(--text-secondary); line-height:1.5;">
+                <li>Sensibilizar a la comunidad educativa y a la ciudadanía sobre los beneficios de la movilidad activa.</li>
+                <li>Difundir los valores del proyecto RIDE: Respeto, Inclusión, Diversión y Entorno.</li>
+                <li>Visibilizar las actividades desarrolladas en Utrera mediante prensa local, radio y redes sociales.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 2: SABERES BÁSICOS -->
+        <div class="memo-tab-pane hidden" id="tab-saberes">
+          <div style="overflow-x:auto;">
+            <table style="width:100%; font-size:0.82rem; border-collapse:collapse; text-align:left;">
+              <thead>
+                <tr style="background:var(--bg-page); border-bottom:2px solid var(--border-light);">
+                  <th style="padding:0.6rem 0.8rem; color:var(--ride-blue);">Materia / Departamento</th>
+                  <th style="padding:0.6rem 0.8rem; color:var(--ride-blue);">Saberes Básicos & Actuaciones RIDE</th>
+                </tr>
+              </thead>
+              <tbody style="line-height:1.45;">
+                <tr style="border-bottom:1px solid var(--border-light);">
+                  <td style="padding:0.6rem 0.8rem; font-weight:600;">Biología y Geología</td>
+                  <td style="padding:0.6rem 0.8rem;">Salud, ejercicio físico, huella ecológica y sostenibilidad ambiental.</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--border-light);">
+                  <td style="padding:0.6rem 0.8rem; font-weight:600;">Geografía e Historia</td>
+                  <td style="padding:0.6rem 0.8rem;">Espacio urbano, movilidad activa y participación ciudadana ante el Ayuntamiento.</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--border-light);">
+                  <td style="padding:0.6rem 0.8rem; font-weight:600;">Educación Física</td>
+                  <td style="padding:0.6rem 0.8rem;">Uso seguro de la bicicleta, destreza en circuito, salidas ciclistas y bienestar.</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--border-light);">
+                  <td style="padding:0.6rem 0.8rem; font-weight:600;">Matemáticas</td>
+                  <td style="padding:0.6rem 0.8rem;">Tratamiento estadístico de encuestas vecinales, cálculo de rutas y distancias.</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--border-light);">
+                  <td style="padding:0.6rem 0.8rem; font-weight:600;">Bachillerato de Arte / EPV</td>
+                  <td style="padding:0.6rem 0.8rem;">Diseño gráfico del logo oficial, cartel del concurso, roll-up y folleto tríptico.</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--border-light);">
+                  <td style="padding:0.6rem 0.8rem; font-weight:600;">Tecnología y Digitalización</td>
+                  <td style="padding:0.6rem 0.8rem;">Taller mecánico de bicicletas, mapeo digital en Google Earth y edición de vídeo.</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--border-light);">
+                  <td style="padding:0.6rem 0.8rem; font-weight:600;">Cultura Europea</td>
+                  <td style="padding:0.6rem 0.8rem;">Programas Erasmus+, ciudadanía europea y modelos ciclistas en Alemania, Italia y Países Bajos.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- TAB 3: DIFUSIÓN MULTICANAL -->
+        <div class="memo-tab-pane hidden" id="tab-multicanal">
+          <div style="display:flex; flex-direction:column; gap:0.6rem; font-size:0.83rem;">
+            <p style="color:var(--text-secondary); margin-bottom:0.4rem;">
+              La campaña RIDE ha alcanzado a miles de personas en Utrera y el ámbito educativo europeo mediante diversos canales verificados:
+            </p>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.6rem;">
+              <div style="background:var(--bg-page); padding:0.75rem; border-radius:var(--radius-sm);">
+                <strong>📻 Radio Local COPE Utrera</strong>
+                <p style="color:var(--text-muted); font-size:0.76rem;">Entrevista radiofónica monográfica sobre el impacto del proyecto RIDE (20/10/2025).</p>
+              </div>
+              <div style="background:var(--bg-page); padding:0.75rem; border-radius:var(--radius-sm);">
+                <strong>📰 Prensa Local Utrera Digital</strong>
+                <p style="color:var(--text-muted); font-size:0.76rem;">Reportajes de la recepción en el Ayuntamiento y Día Mundial de la Bicicleta.</p>
+              </div>
+              <div style="background:var(--bg-page); padding:0.75rem; border-radius:var(--radius-sm);">
+                <strong>📺 YouTube & Redes Sociales</strong>
+                <p style="color:var(--text-muted); font-size:0.76rem;">Canal promocional, vídeos de la Masa Crítica y colaboración con activistas (Bring Your Bike).</p>
+              </div>
+              <div style="background:var(--bg-page); padding:0.75rem; border-radius:var(--radius-sm);">
+                <strong>🌐 Portal Web del Centro</strong>
+                <p style="color:var(--text-muted); font-size:0.76rem;">Sección dedicada en iesjosemariainfantes.com/rutas-en-bici/.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 4: CRÉDITOS & LICENCIA -->
+        <div class="memo-tab-pane hidden" id="tab-creditos">
+          <div style="font-size:0.84rem; line-height:1.5;">
+            <div style="background:var(--bg-page); padding:1rem; border-radius:var(--radius-md); margin-bottom:1rem;">
+              <h4 style="font-family:var(--font-heading); color:var(--ride-blue); margin-bottom:0.3rem;">Coordinación del Proyecto</h4>
+              <p><strong>Lucía Nieto Sánchez</strong> & <strong>Daniel Fernández Postigo</strong></p>
+              <h4 style="font-family:var(--font-heading); color:var(--ride-blue); margin-top:0.6rem; margin-bottom:0.3rem;">Profesorado y Comunidad Participante</h4>
+              <p style="color:var(--text-secondary); font-size:0.8rem;">
+                Jesús Sánchez Espín, Mª Isabel Cabello Conejo, José Galán Molina, Pablo Ocaña Gil, Pablo Ocaña González, Antonio Medina, Elena Patricia Yerpes Arenas, Beatriz López Escobar Rituerto, Miriam Morillo Terrino, Francisco Javier Marchena Alba, Ana María Guzmán Tenorio, Miguel Peña Gallardo, María Beatriz Hurtado Molina, Rafael Camacho López, Laura María Fernández González, Macarena Piña Rodríguez, Elizabeth Pozo Núñez, Montserrat Donaire.
+              </p>
+            </div>
+
+            <div style="display:flex; align-items:center; gap:0.8rem; padding:0.75rem; border:1px solid var(--border-light); border-radius:var(--radius-sm);">
+              <span style="font-size:1.8rem;">🅭🅯🄏🄎</span>
+              <div>
+                <strong>Licencia Creative Commons (CC BY-NC-SA 4.0)</strong>
+                <p style="font-size:0.75rem; color:var(--text-muted);">Reconocimiento - NoComercial - CompartirIgual. Proyecto educativo sin ánimo de lucro.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: IES JOSÉ MARÍA INFANTES -->
+  <div class="app-modal-backdrop hidden" id="modal-ies">
+    <div class="app-modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-kicker">Comunidad Educativa</span>
+          <h3 class="modal-title">IES José María Infantes («El Pastorcito»)</h3>
+        </div>
+        <button class="modal-close-btn" data-close-modal="modal-ies">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="ies-info-grid">
+          <div class="ies-badge-box">
+            <span class="info-icon">📍</span>
+            <div>
+              <strong>Ubicación</strong>
+              <p>Calle Jilguero, s/n, 41710 Utrera (Sevilla)</p>
+              <p class="small-text">Coordenadas: 37.1835° N, -5.7716° O</p>
+            </div>
+          </div>
+          <div class="ies-badge-box">
+            <span class="info-icon">🎨</span>
+            <div>
+              <strong>Señas de Identidad</strong>
+              <p>Bachillerato de Arte · Escuela-Museo · Proyectos Europeos Erasmus+</p>
+            </div>
+          </div>
+          <div class="ies-badge-box">
+            <span class="info-icon">🌱</span>
+            <div>
+              <strong>Programas Vinculados</strong>
+              <p>RIDE · Hábitos de Vida Saludable · Programa Aldea (Educación Ambiental)</p>
+            </div>
+          </div>
+          <div class="ies-badge-box">
+            <span class="info-icon">🚲</span>
+            <div>
+              <strong>Infraestructura Ciclista</strong>
+              <p>Aparcabicis interior conseguido tras petición formal al Ayuntamiento (2025)</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="ies-text-block">
+          <h4>El papel central del centro en el proyecto</h4>
+          <p>
+            El IES José María Infantes no solo es el destino diario de cientos de desplazamientos de estudiantes de Utrera, sino el auténtico laboratorio de cambio modal. Desde las clases de diseño de 1º de Bachillerato de Arte (donde nació el logotipo oficial) hasta los recreos activos en el almacén del Ciclotaller Bartali, el alumnado ha sido el protagonista absoluto de cada avance.
+          </p>
+        </div>
+
+        <div class="modal-actions">
+          <button class="action-btn primary" id="btn-focus-ies-map">Ver en el Mapa</button>
+          <a href="https://iesjosemariainfantes.com/rutas-en-bici/" target="_blank" rel="noopener" class="action-btn secondary">Web Institucional</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX MODAL FOR IMAGES -->
+  <div class="lightbox-backdrop hidden" id="modal-lightbox">
+    <div class="lightbox-container">
+      <button class="lightbox-close" id="lightbox-close">&times;</button>
+      <div class="lightbox-media-wrap">
+        <img src="" alt="" id="lightbox-img" class="lightbox-img">
+      </div>
+      <div class="lightbox-info">
+        <span class="lightbox-category" id="lightbox-category"></span>
+        <h4 class="lightbox-title" id="lightbox-title"></h4>
+        <p class="lightbox-desc" id="lightbox-desc"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <!-- Modular Application Scripts -->
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
+

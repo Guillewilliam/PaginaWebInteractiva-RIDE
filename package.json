@@ -1,0 +1,24 @@
+{
+  "name": "ride-ponte-en-marcha",
+  "version": "1.0.0",
+  "description": "Plataforma web interactiva del proyecto educativo RIDE — Ponte en Marcha del IES José María Infantes de Utrera (Sevilla)",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8080",
+    "serve": "npx serve -l 8080"
+  },
+  "keywords": [
+    "ride",
+    "movilidad-sostenible",
+    "utrera",
+    "ciclismo-urbano",
+    "leaflet",
+    "geojson",
+    "educacion-vial",
+    "erasmus-plus",
+    "escuela-museo"
+  ],
+  "author": "IES José María Infantes (Utrera, Sevilla)",
+  "license": "CC-BY-NC-SA-4.0"
+}
+

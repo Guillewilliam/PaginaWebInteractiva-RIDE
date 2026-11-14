@@ -1,0 +1,387 @@
+/* ========================================================
+   PROYECTO RIDE — PONTE EN MARCHA | IES JOSÉ MARÍA INFANTES
+   MAP.CSS — Estilos del Mapa Leaflet, Controles Flotantes y Leyenda
+   ======================================================== */
+
+.map-view-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.map-canvas {
+  width: 100%;
+  height: 100%;
+  background-color: #e5e3df;
+  z-index: 1;
+}
+
+/* ========================================================
+   CONTROLES FLOTANTES DEL MAPA
+   ======================================================== */
+.map-controls-floating {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 800;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  pointer-events: none;
+}
+
+.control-group {
+  display: flex;
+  background: var(--bg-glass);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 0.3rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-md);
+  pointer-events: auto;
+}
+
+.map-tool-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 0.8rem;
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: transparent;
+  transition: all var(--transition-fast);
+}
+
+.map-tool-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--text-primary);
+}
+
+.map-tool-btn.active {
+  background: var(--ride-green);
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(39, 174, 96, 0.3);
+}
+
+.route-select-group {
+  padding: 0.2rem 0.4rem;
+}
+
+.route-select {
+  border: none;
+  background: transparent;
+  padding: 0.4rem 0.7rem;
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  outline: none;
+  cursor: pointer;
+  border-radius: var(--radius-full);
+}
+
+.route-select:focus {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+/* ========================================================
+   LEYENDA PERMANENTE Y DESPLEGABLE
+   ======================================================== */
+.map-legend-card {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 800;
+  width: 250px;
+  background: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-lg);
+  transition: all var(--transition-smooth);
+}
+
+.legend-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.legend-title {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--text-primary);
+}
+
+.legend-collapse-btn {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--text-secondary);
+  transition: background var(--transition-fast);
+}
+
+.legend-collapse-btn:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.legend-body {
+  padding: 0.85rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.legend-caption {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.15rem;
+}
+
+.legend-item {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 0.55rem;
+  align-items: center;
+  cursor: pointer;
+  padding: 0.25rem 0.35rem;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition-fast);
+}
+
+.legend-item:hover {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.legend-item input[type="checkbox"] {
+  grid-row: span 2;
+  cursor: pointer;
+  accent-color: var(--ride-green);
+}
+
+.color-badge {
+  grid-row: span 2;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.color-verde { background-color: var(--via-verde); }
+.color-azul  { background-color: var(--via-azul); }
+.color-rojo  { background-color: var(--via-rojo); }
+.color-negro { background-color: var(--via-negro); }
+
+.item-name {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.1;
+}
+
+.item-sub {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  line-height: 1.1;
+}
+
+.legend-divider {
+  height: 1px;
+  background: rgba(0, 0, 0, 0.07);
+  margin: 0.35rem 0;
+}
+
+.legend-extra {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.76rem;
+  color: var(--text-secondary);
+}
+
+.legend-marker-item {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-weight: 500;
+}
+
+/* ========================================================
+   TARJETA FLOTANTE CONTEXTUAL (MAP-CONTEXT-CARD)
+   ======================================================== */
+.map-context-card {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  z-index: 850;
+  width: 380px;
+  max-width: calc(100vw - 3rem);
+  max-height: 75vh;
+  overflow-y: auto;
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-float);
+  border: 1px solid var(--border-light);
+  padding: 1.25rem;
+  animation: slide-up-card 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.map-context-card::-webkit-scrollbar {
+  width: 5px;
+}
+
+.map-context-card::-webkit-scrollbar-thumb {
+  background: var(--border-light);
+  border-radius: 4px;
+}
+
+@keyframes slide-up-card {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.context-close-btn {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--bg-page);
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: all var(--transition-fast);
+}
+
+.context-close-btn:hover {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.context-header-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 0.5rem;
+}
+
+.context-title {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.25;
+  margin-bottom: 0.4rem;
+}
+
+.context-desc {
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  margin-bottom: 0.75rem;
+}
+
+.context-meta-row {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 0.85rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--border-light);
+}
+
+.context-meta-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.context-meta-label {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.context-meta-val {
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.context-action-btn {
+  width: 100%;
+  padding: 0.5rem;
+  background: var(--ride-blue);
+  color: #ffffff;
+  border-radius: var(--radius-md);
+  font-size: 0.84rem;
+  font-weight: 600;
+  transition: background var(--transition-fast);
+}
+
+.context-action-btn:hover {
+  background: #002266;
+}
+
+/* ========================================================
+   ESTILOS DE POPUPS LEAFLET CUSTOM
+   ======================================================== */
+.leaflet-popup-content-wrapper {
+  border-radius: var(--radius-md) !important;
+  box-shadow: var(--shadow-lg) !important;
+  padding: 0.2rem !important;
+  font-family: var(--font-body) !important;
+}
+
+.leaflet-popup-content {
+  margin: 0.75rem 1rem !important;
+  line-height: 1.4 !important;
+}
+
+.custom-popup-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--ride-blue);
+  margin-bottom: 0.2rem;
+}
+
+.custom-popup-body {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
