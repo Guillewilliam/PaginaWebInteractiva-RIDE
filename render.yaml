@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: ride-ponte-en-marcha
+    env: static
+    buildCommand: ""
+    staticPublishPath: .
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: max-age=3600
+

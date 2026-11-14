@@ -3,10 +3,12 @@
    MAP.JS — Motor Cartográfico Leaflet, Capas GeoJSON y Foco
    ======================================================== */
 
-// Coordenadas clave de Utrera
-export const COORDS_IES_INFANTES = [37.18347, -5.77160];
-export const COORDS_AYUNTAMIENTO = [37.18182, -5.78045];
-export const COORDS_CONSOLACION = [37.18950, -5.76120];
+import { CONFIG } from './config.js';
+
+// Coordenadas clave de Utrera desde archivo de configuración
+export const COORDS_IES_INFANTES = CONFIG.coords.iesInfantes;
+export const COORDS_AYUNTAMIENTO = CONFIG.coords.ayuntamiento;
+export const COORDS_CONSOLACION = CONFIG.coords.consolacion;
 
 let map = null;
 let satLayer = null;
@@ -76,16 +78,21 @@ export async function initMap() {
   L.control.zoom({ position: 'bottomright' }).addTo(map);
 
   // 2. Capa Satélite Aérea de Alta Resolución (Esri World Imagery)
-  satLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-    attribution: 'Imágenes satélite &copy; Esri, Maxar, Earthstar Geographics',
+  satLayer = L.tileLayer(CONFIG.esri.satelliteUrl, {
+    attribution: CONFIG.esri.attribution,
     maxZoom: 19
   });
 
-  // 3. Capa Callejero Vectorial Claro (CartoDB Voyager)
-  streetLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+  // 3. Capa Callejero CARTO Voyager (Autenticada con API Key Oficial)
+  streetLayer = L.tileLayer(CONFIG.carto.voyagerRasterUrl, {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> colaboradores &copy; <a href="https://carto.com/attributions">CARTO</a>',
     subdomains: 'abcd',
     maxZoom: 19
+  });
+
+  // Manejo de contingencia para máxima disponibilidad
+  streetLayer.on('tileerror', (error) => {
+    console.warn('Aviso de carga de tesela CARTO:', error);
   });
 
   // Capa aérea activa por defecto
