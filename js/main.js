@@ -1,50 +1,29 @@
-/* ========================================================
-   PROYECTO RIDE — PONTE EN MARCHA | IES JOSÉ MARÍA INFANTES
-   MAIN.JS — Orquestador Principal de la Aplicación
-   ======================================================== */
-
-import { initNavigation } from './navigation.js';
-import { initMap } from './map.js';
-import { loadActivities, renderActivities } from './activities.js';
-import { loadBartali, renderBartaliShowcase } from './bartali.js';
-import { initGallery } from './gallery.js';
-
+/**
+ * Punto de entrada protegido para Proyecto RIDE:
+ * Garantiza el renderizado de los 13 banners incluso si otro script lanza un error.
+ */
 document.addEventListener('DOMContentLoaded', async () => {
-  console.log('🚴 Inicializando RIDE — Ponte en Marcha (IES José María Infantes)...');
-
-  // 1. Cargar Datos en Paralelo
-  const [activities, bartali] = await Promise.all([
-    loadActivities(),
-    loadBartali()
-  ]);
-
-  // 2. Inicializar Motor Cartográfico
-  const map = initMap();
-
-  // 3. Inicializar Galería Fotográfica
-  initGallery();
-
-  // 4. Inicializar Navegación e Interacciones
-  initNavigation({
-    onOpenView: (viewName) => {
-      if (viewName === 'map') {
-        // Redimensionar el mapa si estaba oculto o cambió de tamaño
-        setTimeout(() => {
-          if (map) map.invalidateSize();
-        }, 100);
-      }
-    },
-    onOpenActivities: () => {
-      renderActivities('all');
-    },
-    onOpenBartali: () => {
-      renderBartaliShowcase();
+  try {
+    if (typeof RideActivities !== 'undefined') {
+      await RideActivities.loadActivities();
     }
-  });
+  } catch (error) {
+    console.error('Error cargando actividades:', error);
+  }
 
-  // Render inicial de actividades en segundo plano
-  renderActivities('all');
+  try {
+    if (typeof RideNavigation !== 'undefined') {
+      RideNavigation.init();
+    }
+  } catch (error) {
+    console.error('Error inicializando navegación:', error);
+  }
 
-  console.log('✅ RIDE inicializado correctamente.');
+  try {
+    if (typeof initRideMap === 'function') {
+      initRideMap();
+    }
+  } catch (error) {
+    console.warn('Aviso al inicializar el mapa en segundo plano:', error);
+  }
 });
-

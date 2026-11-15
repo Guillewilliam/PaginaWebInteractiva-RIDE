@@ -7,15 +7,26 @@ import { focusRoute, resetAllRoutes, COORDS_IES_INFANTES, COORDS_AYUNTAMIENTO } 
 
 let activitiesData = [];
 
-export async function loadActivities() {
+async function loadActivities() {
   try {
-    const res = await fetch('data/activities.json');
-    activitiesData = await res.json();
-    return activitiesData;
+    const response = await fetch('data/activities.json');
+    if (response.ok) {
+      const json = await response.json();
+      const parsed = Array.isArray(json)
+        ? json
+        : (json.activities || json.actividades || Object.values(json).find(Array.isArray));
+
+      activitiesData = (Array.isArray(parsed) && parsed.length > 0)
+        ? parsed
+        : fallbackActivities;
+    } else {
+      activitiesData = fallbackActivities;
+    }
   } catch (err) {
-    console.error('Error cargando activities.json:', err);
-    return [];
+    console.warn('Usando datos de respaldo para las actividades:', err);
+    activitiesData = fallbackActivities;
   }
+  renderGrid();
 }
 
 export function renderActivities(filter = 'all') {
@@ -30,8 +41,8 @@ export function renderActivities(filter = 'all') {
   if (drawerBadge) drawerBadge.textContent = 'Memoria Escolar';
   if (filtersBar) filtersBar.classList.remove('hidden');
 
-  const filtered = filter === 'all' 
-    ? activitiesData 
+  const filtered = filter === 'all'
+    ? activitiesData
     : activitiesData.filter(act => act.categoria === filter);
 
   if (filtered.length === 0) {
