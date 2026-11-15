@@ -152,15 +152,13 @@
     </div>
   </section>
 
-  <!-- Scripts de Leaflet y del proyecto RIDE -->
+  <!-- Leaflet JS (Global) -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="js/config.js"></script>
-  <script src="js/map.js"></script>
-  <script src="js/activities.js"></script>
-  <script src="js/bartali.js"></script>
-  <script src="js/gallery.js"></script>
-  <script src="js/navigation.js"></script>
-  <script src="js/main.js"></script>
+
+  <!-- Scripts de RIDE cargados como ES Modules (respeta tus import/export originales) -->
+  <script type="module" src="js/activities.js"></script>
+  <script type="module" src="js/navigation.js"></script>
+  <script type="module" src="js/main.js"></script>
 </body>
 
 </html>

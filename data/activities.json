@@ -17,7 +17,11 @@
       "Diversión: Aprendizaje vivencial, ocio activo y compañerismo.",
       "Entorno: Cuidado del medio ambiente local y mejora del aire urbano."
     ],
-    "evidencias": ["Logotipo oficial de Cristina Aparicio", "Roll-up institucional", "Tríptico informativo"]
+    "evidencias": [
+      "Logotipo oficial de Cristina Aparicio",
+      "Roll-up institucional",
+      "Tríptico informativo"
+    ]
   },
   {
     "id": "educacion-vial",
@@ -36,7 +40,10 @@
       "Diseño de materiales didácticos por estudiantes para sus compañeros.",
       "Desarrollo de habilidades de comunicación y responsabilidad cívica."
     ],
-    "evidencias": ["Presentaciones sobre normativa", "Carteles informativos sobre VMP y bicis"]
+    "evidencias": [
+      "Presentaciones sobre normativa",
+      "Carteles informativos sobre VMP y bicis"
+    ]
   },
   {
     "id": "infatur-turismo",
@@ -55,7 +62,11 @@
       "Acceso mediante 'ticket' tras superar preguntas sobre movilidad verde.",
       "Jornadas de tránsito para acoger a niños y niñas de 6º de Primaria de colegios adscritos."
     ],
-    "evidencias": ["Stand decorado", "Bicis de préstamo utilizadas", "Señales de tráfico cedidas"]
+    "evidencias": [
+      "Stand decorado",
+      "Bicis de préstamo utilizadas",
+      "Señales de tráfico cedidas"
+    ]
   },
   {
     "id": "diseno-rutas",
@@ -75,7 +86,10 @@
       "Rojo: Zonas 30 con prioridad ciclista compartida.",
       "Negro: Puntos y tramos de alta peligrosidad."
     ],
-    "evidencias": ["Presentación Google Earth unificada", "Planos físicos y mapas digitales"]
+    "evidencias": [
+      "Presentación Google Earth unificada",
+      "Planos físicos y mapas digitales"
+    ]
   },
   {
     "id": "solicitudes-ayuntamiento",
@@ -94,7 +108,11 @@
       "Petición técnica de carril bici en Calle Antonio Machado y Calle Jilguero.",
       "Reunión con el Departamento de Obras y Mantenimiento de Edificios Públicos."
     ],
-    "evidencias": ["Aparcabicis instalado", "Registro formal de entrada", "Informe técnico"]
+    "evidencias": [
+      "Aparcabicis instalado",
+      "Registro formal de entrada",
+      "Informe técnico"
+    ]
   },
   {
     "id": "ciclotaller-bartali",
@@ -113,7 +131,11 @@
       "9 bicicletas rescatadas actualmente en préstamo activo.",
       "Fomento de competencias STEM y aprendizaje manual y mecánico."
     ],
-    "evidencias": ["Taller equipado", "9 bicicletas rotuladas con leyendas", "Registro de donaciones"]
+    "evidencias": [
+      "Taller equipado",
+      "9 bicicletas rotuladas con leyendas",
+      "Registro de donaciones"
+    ]
   },
   {
     "id": "masas-criticas",
@@ -132,7 +154,11 @@
       "Ocupación del centro del carril en calles de sentido único para evitar ángulos muertos.",
       "Circulación respetuosa y silenciosa en zonas comerciales del centro histórico."
     ],
-    "evidencias": ["Vídeos promocionales", "Fotografías en calles principales", "Impacto vecinal"]
+    "evidencias": [
+      "Vídeos promocionales",
+      "Fotografías en calles principales",
+      "Impacto vecinal"
+    ]
   },
   {
     "id": "ven-al-insti-en-bici",
@@ -151,7 +177,10 @@
       "Control de asistencia ciclista coordinado con el PAS.",
       "Premios: timbres, candados de seguridad, juegos de luces y plaza de aparcamiento VIP."
     ],
-    "evidencias": ["Cartel original de Yaiza Rodríguez", "Planillas diarias de conserjería"]
+    "evidencias": [
+      "Cartel original de Yaiza Rodríguez",
+      "Planillas diarias de conserjería"
+    ]
   },
   {
     "id": "dia-mundial-bicicleta",
@@ -170,7 +199,11 @@
       "Reconocimiento público al esfuerzo continuado de los estudiantes.",
       "Lona conmemorativa oficial del evento."
     ],
-    "evidencias": ["Lona promocional", "Diplomas concedidos", "Registro en prensa local"]
+    "evidencias": [
+      "Lona promocional",
+      "Diplomas concedidos",
+      "Registro en prensa local"
+    ]
   },
   {
     "id": "entrevistas-calle",
@@ -189,7 +222,11 @@
       "Identificación de puntos negros percibidos por los propios peatones.",
       "Tratamiento estadístico interdisciplinar de datos en la materia de Matemáticas."
     ],
-    "evidencias": ["Cuestionarios tabulados", "Conclusiones analíticas", "Grabaciones sonoras"]
+    "evidencias": [
+      "Cuestionarios tabulados",
+      "Conclusiones analíticas",
+      "Grabaciones sonoras"
+    ]
   },
   {
     "id": "movilidades-internacionales",
@@ -208,7 +245,11 @@
       "Inspiración directa para la creación del Ciclotaller Bartali tras visitar talleres populares italianos.",
       "Entrevistas a responsables del Ayuntamiento de Münster sobre políticas modales."
     ],
-    "evidencias": ["Vídeos en canal Bring Your Bike", "Artículos en web institucional", "Juegos INFATUR"]
+    "evidencias": [
+      "Vídeos en canal Bring Your Bike",
+      "Artículos en web institucional",
+      "Juegos INFATUR"
+    ]
   },
   {
     "id": "visita-ayuntamiento-futuro",
@@ -227,7 +268,11 @@
       "Entrega del mapa interactivo como bien público ciudadano.",
       "Líneas de futuro: contabilidad de km ahorrados, medición de huella CO2 e integración bilingüe y artística."
     ],
-    "evidencias": ["Crónica en Utrera Digital y Cope Utrera", "Fotografía en el patio consistorial", "Mapa donado"]
+    "evidencias": [
+      "Crónica en Utrera Digital y Cope Utrera",
+      "Fotografía en el patio consistorial",
+      "Mapa donado"
+    ]
   },
   {
     "id": "rutas-ciclistas-utrera",
@@ -247,8 +292,11 @@
       "Visualiza los tramos conflictivos solicitados formalmente al Ayuntamiento (Calles Antonio Machado y Jilguero).",
       "Conmuta entre vista aérea de alta resolución (estilo Google Earth) y callejero vectorial CARTO."
     ],
-    "evidencias": ["Mapa interactivo Leaflet", "Presentación Google Earth unificada", "Donación del mapa al Ayuntamiento"],
+    "evidencias": [
+      "Mapa interactivo Leaflet",
+      "Presentación Google Earth unificada",
+      "Donación del mapa al Ayuntamiento"
+    ],
     "es_mapa": true
   }
 ]
-

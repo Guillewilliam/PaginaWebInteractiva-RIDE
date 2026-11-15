@@ -1,10 +1,9 @@
 /**
- * Gestión de navegación simplificada para Proyecto RIDE:
- * - Vista Principal: Las 12 actividades + Actividad 13 (Mapa)
- * - Vista Detalle: Actividad individual (1 a 12)
- * - Vista Cartográfica: Actividad 13 a pantalla completa
+ * Gestión de navegación simplificada como ES Module para Proyecto RIDE
  */
-const RideNavigation = (() => {
+import { RideActivities } from './activities.js';
+
+export const RideNavigation = (() => {
   const homeView = document.getElementById('home-view');
   const detailView = document.getElementById('activity-detail-view');
   const mapView = document.getElementById('map-view');
@@ -13,28 +12,27 @@ const RideNavigation = (() => {
   let currentActivityIndex = 0;
 
   function hideAllViews() {
-    homeView.classList.add('hidden');
-    detailView.classList.add('hidden');
-    mapView.classList.add('hidden');
+    homeView?.classList.add('hidden');
+    detailView?.classList.add('hidden');
+    mapView?.classList.add('hidden');
   }
 
   function showHome() {
     hideAllViews();
-    homeView.classList.remove('hidden');
-    btnBackHome.classList.add('hidden');
+    homeView?.classList.remove('hidden');
+    btnBackHome?.classList.add('hidden');
     window.scrollTo({ top: 0, behavior: 'smooth' });
     history.replaceState(null, '', '#inicio');
   }
 
   function showActivity(index) {
-    if (typeof RideActivities === 'undefined') return;
     const total = RideActivities.getCount();
     if (index < 0 || index >= total) return;
 
     currentActivityIndex = index;
     hideAllViews();
-    detailView.classList.remove('hidden');
-    btnBackHome.classList.remove('hidden');
+    detailView?.classList.remove('hidden');
+    btnBackHome?.classList.remove('hidden');
 
     RideActivities.renderDetail(index);
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -43,18 +41,15 @@ const RideNavigation = (() => {
 
   function showMapActivity() {
     hideAllViews();
-    mapView.classList.remove('hidden');
-    btnBackHome.classList.remove('hidden');
+    mapView?.classList.remove('hidden');
+    btnBackHome?.classList.remove('hidden');
     history.replaceState(null, '', '#actividad-13-mapa');
 
-    // Recalcular tamaño de Leaflet al pasar de display:none a visible
     setTimeout(() => {
       if (window.rideMap && typeof window.rideMap.invalidateSize === 'function') {
         window.rideMap.invalidateSize();
-      } else if (typeof initRideMap === 'function') {
-        initRideMap();
       }
-    }, 120);
+    }, 150);
   }
 
   function init() {
@@ -81,11 +76,10 @@ const RideNavigation = (() => {
       if (currentActivityIndex + 1 < total) {
         showActivity(currentActivityIndex + 1);
       } else {
-        showMapActivity(); // Después de la 12 pasa directamente a la 13 (Mapa)
+        showMapActivity();
       }
     });
 
-    // Control plegable de capas del mapa
     const toggleBtn = document.getElementById('btn-toggle-controls');
     const layersBody = document.getElementById('map-layers-container');
     toggleBtn?.addEventListener('click', () => {
@@ -94,12 +88,10 @@ const RideNavigation = (() => {
       toggleBtn.setAttribute('aria-expanded', String(!collapsed));
     });
 
-    // Cierre del panel flotante de información del mapa
     document.getElementById('btn-close-map-info')?.addEventListener('click', () => {
       document.getElementById('map-info-panel')?.classList.add('hidden');
     });
 
-    // Arrancar siempre en la página principal de actividades salvo hash directo
     const hash = window.location.hash;
     if (hash === '#actividad-13-mapa') {
       showMapActivity();
@@ -122,3 +114,5 @@ const RideNavigation = (() => {
     showMapActivity
   };
 })();
+
+window.RideNavigation = RideNavigation;
