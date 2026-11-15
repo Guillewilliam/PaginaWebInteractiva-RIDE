@@ -1,7 +1,11 @@
 /**
- * Gestión de navegación simplificada como ES Module para Proyecto RIDE
+ * Gestión de navegación simplificada como ES Module para Proyecto RIDE:
+ * - Vista Principal: Las 12 actividades + Actividad 13 (Mapa)
+ * - Vista Detalle: Actividad individual (1 a 12)
+ * - Vista Cartográfica: Actividad 13 a pantalla completa
  */
 import { RideActivities } from './activities.js';
+import { initRideMap } from './map.js';
 
 export const RideNavigation = (() => {
   const homeView = document.getElementById('home-view');
@@ -45,11 +49,13 @@ export const RideNavigation = (() => {
     btnBackHome?.classList.remove('hidden');
     history.replaceState(null, '', '#actividad-13-mapa');
 
-    setTimeout(() => {
-      if (window.rideMap && typeof window.rideMap.invalidateSize === 'function') {
-        window.rideMap.invalidateSize();
+    // Inicializa el mapa justo cuando el contenedor #map-view ya es visible
+    requestAnimationFrame(() => {
+      const map = initRideMap();
+      if (map) {
+        setTimeout(() => map.invalidateSize(), 150);
       }
-    }, 150);
+    });
   }
 
   function init() {
