@@ -228,6 +228,27 @@
       "Líneas de futuro: contabilidad de km ahorrados, medición de huella CO2 e integración bilingüe y artística."
     ],
     "evidencias": ["Crónica en Utrera Digital y Cope Utrera", "Fotografía en el patio consistorial", "Mapa donado"]
+  },
+  {
+    "id": "rutas-ciclistas-utrera",
+    "numero": 13,
+    "titulo": "Rutas Ciclistas y Cartografía de Utrera",
+    "subtitulo": "Mapa interactivo, vías clasificadas y recorridos seguros al instituto",
+    "periodo": "Curso 2024-25 y 2025-26",
+    "participantes": "3º ESO (Cultura Europea) y Comunidad Educativa",
+    "publico_objetivo": "Toda la ciudadanía de Utrera, familias y alumnado ciclista",
+    "categoria": "cartografia",
+    "badge": "Actividad 13 · Mapa",
+    "imagen": "assets/images/mapa-recortes-p10.jpg",
+    "descripcion": "El alumnado aprendió a mapear los carriles bici en Google Earth e investigó su entorno dividiendo Utrera por barrios. Diseñaron itinerarios seguros hacia 'El Pastorcito' y clasificaron las vías por colores según su nivel de protección: verde (protegido), azul (acera), rojo (zona 30) y negro (tramos peligrosos).",
+    "puntos_clave": [
+      "Explora la red de carriles bici clasificada con la metodología oficial RIDE (Pág. 10).",
+      "Consulta los itinerarios escolares seguros desde los distintos barrios de Utrera.",
+      "Visualiza los tramos conflictivos solicitados formalmente al Ayuntamiento (Calles Antonio Machado y Jilguero).",
+      "Conmuta entre vista aérea de alta resolución (estilo Google Earth) y callejero vectorial CARTO."
+    ],
+    "evidencias": ["Mapa interactivo Leaflet", "Presentación Google Earth unificada", "Donación del mapa al Ayuntamiento"],
+    "es_mapa": true
   }
 ]
 

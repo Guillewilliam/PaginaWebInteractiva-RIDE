@@ -1,387 +1,197 @@
-/* ========================================================
-   PROYECTO RIDE — PONTE EN MARCHA | IES JOSÉ MARÍA INFANTES
-   MAP.CSS — Estilos del Mapa Leaflet, Controles Flotantes y Leyenda
-   ======================================================== */
-
-.map-view-container {
+/* =========================================================
+   ACTIVIDAD 13: EXPERIENCIA CARTOGRÁFICA INDEPENDIENTE
+   ========================================================= */
+.map-fullscreen-wrapper {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: calc(100vh - 76px);
   overflow: hidden;
+  background: #e2e8f0;
 }
 
-.map-canvas {
+.ride-map-canvas {
   width: 100%;
   height: 100%;
-  background-color: #e5e3df;
   z-index: 1;
 }
 
-/* ========================================================
-   CONTROLES FLOTANTES DEL MAPA
-   ======================================================== */
-.map-controls-floating {
+/* Cabecera flotante superior izquierda */
+.map-floating-header {
   position: absolute;
-  top: 1rem;
-  left: 1rem;
+  top: 1.1rem;
+  left: 1.1rem;
   z-index: 800;
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  pointer-events: none;
+  align-items: center;
+  gap: 0.9rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 0.65rem 1.1rem;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.14);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+.btn-map-back {
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  background: var(--ride-primary);
+  color: #ffffff;
+  border: none;
+  padding: 0.55rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.25s ease;
+}
+
+.btn-map-back:hover {
+  background: var(--ride-primary-dark);
+}
+
+.map-title-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.map-number-tag {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ride-primary);
+}
+
+.map-title-box h2 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--ride-text);
+  line-height: 1.2;
+}
+
+/* Selector flotante de rutas y capas (Superior derecha) */
+.map-controls-drawer {
+  position: absolute;
+  top: 1.1rem;
+  right: 1.1rem;
+  z-index: 800;
+  width: 300px;
+  max-height: calc(100vh - 180px);
+  overflow-y: auto;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(10px);
+  border-radius: 14px;
+  padding: 1rem 1.15rem;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.14);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.65rem;
+}
+
+.drawer-header h3 {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--ride-text);
+}
+
+.btn-toggle-drawer {
+  background: #f1f5f9;
+  border: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
 }
 
 .control-group {
   display: flex;
-  background: var(--bg-glass);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  padding: 0.3rem;
-  border-radius: var(--radius-full);
-  border: 1px solid var(--border-light);
-  box-shadow: var(--shadow-md);
-  pointer-events: auto;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.6rem;
 }
 
-.map-tool-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 0.45rem 0.8rem;
-  border-radius: var(--radius-full);
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--text-secondary);
-  background: transparent;
-  transition: all var(--transition-fast);
-}
-
-.map-tool-btn:hover {
-  background: rgba(0, 0, 0, 0.05);
-  color: var(--text-primary);
-}
-
-.map-tool-btn.active {
-  background: var(--ride-green);
-  color: #ffffff;
-  box-shadow: 0 2px 6px rgba(39, 174, 96, 0.3);
-}
-
-.route-select-group {
-  padding: 0.2rem 0.4rem;
-}
-
-.route-select {
-  border: none;
-  background: transparent;
-  padding: 0.4rem 0.7rem;
-  font-family: inherit;
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  outline: none;
-  cursor: pointer;
-  border-radius: var(--radius-full);
-}
-
-.route-select:focus {
-  background: rgba(0, 0, 0, 0.04);
-}
-
-/* ========================================================
-   LEYENDA PERMANENTE Y DESPLEGABLE
-   ======================================================== */
-.map-legend-card {
+/* Leyenda compacta (Inferior izquierda) */
+.map-compact-legend {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  bottom: 1.5rem;
+  left: 1.1rem;
   z-index: 800;
-  width: 250px;
-  background: var(--bg-glass);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border-light);
-  box-shadow: var(--shadow-lg);
-  transition: all var(--transition-smooth);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 0.85rem 1.1rem;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.14);
+  border: 1px solid rgba(226, 232, 240, 0.9);
 }
 
-.legend-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.75rem 1rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+.map-compact-legend h4 {
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ride-text-muted);
+  margin-bottom: 0.45rem;
 }
 
-.legend-title {
-  display: flex;
-  align-items: center;
-  gap: 0.45rem;
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 0.88rem;
-  color: var(--text-primary);
-}
-
-.legend-collapse-btn {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.05);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-  font-weight: bold;
-  color: var(--text-secondary);
-  transition: background var(--transition-fast);
-}
-
-.legend-collapse-btn:hover {
-  background: rgba(0, 0, 0, 0.1);
-}
-
-.legend-body {
-  padding: 0.85rem 1rem;
+.legend-list {
+  list-style: none;
   display: flex;
   flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--ride-text);
+}
+
+.legend-list li {
+  display: flex;
+  align-items: center;
   gap: 0.55rem;
 }
 
-.legend-caption {
-  font-size: 0.72rem;
-  color: var(--text-muted);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  margin-bottom: 0.15rem;
+.legend-line {
+  display: inline-block;
+  width: 22px;
+  height: 4px;
+  border-radius: 2px;
 }
 
-.legend-item {
-  display: grid;
-  grid-template-columns: auto auto 1fr;
-  grid-template-rows: auto auto;
-  column-gap: 0.55rem;
-  align-items: center;
-  cursor: pointer;
-  padding: 0.25rem 0.35rem;
-  border-radius: var(--radius-sm);
-  transition: background var(--transition-fast);
-}
-
-.legend-item:hover {
-  background: rgba(0, 0, 0, 0.03);
-}
-
-.legend-item input[type="checkbox"] {
-  grid-row: span 2;
-  cursor: pointer;
-  accent-color: var(--ride-green);
-}
-
-.color-badge {
-  grid-row: span 2;
-  width: 16px;
-  height: 16px;
-  border-radius: 4px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-}
-
-.color-verde { background-color: var(--via-verde); }
-.color-azul  { background-color: var(--via-azul); }
-.color-rojo  { background-color: var(--via-rojo); }
-.color-negro { background-color: var(--via-negro); }
-
-.item-name {
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  line-height: 1.1;
-}
-
-.item-sub {
-  font-size: 0.7rem;
-  color: var(--text-muted);
-  line-height: 1.1;
-}
-
-.legend-divider {
-  height: 1px;
-  background: rgba(0, 0, 0, 0.07);
-  margin: 0.35rem 0;
-}
-
-.legend-extra {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-  font-size: 0.76rem;
-  color: var(--text-secondary);
-}
-
-.legend-marker-item {
-  display: flex;
-  align-items: center;
-  gap: 0.45rem;
-  font-weight: 500;
-}
-
-/* ========================================================
-   TARJETA FLOTANTE CONTEXTUAL (MAP-CONTEXT-CARD)
-   ======================================================== */
-.map-context-card {
+/* Panel flotante de información contextual (Inferior derecha) */
+.map-info-panel {
   position: absolute;
   bottom: 1.5rem;
-  left: 1.5rem;
+  right: 1.1rem;
   z-index: 850;
-  width: 380px;
-  max-width: calc(100vw - 3rem);
-  max-height: 75vh;
-  overflow-y: auto;
-  background: var(--bg-card);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-float);
-  border: 1px solid var(--border-light);
-  padding: 1.25rem;
-  animation: slide-up-card 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 340px;
+  max-width: calc(100vw - 2.2rem);
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 1.35rem;
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.2);
+  border: 1px solid var(--ride-border);
 }
 
-.map-context-card::-webkit-scrollbar {
-  width: 5px;
-}
-
-.map-context-card::-webkit-scrollbar-thumb {
-  background: var(--border-light);
-  border-radius: 4px;
-}
-
-@keyframes slide-up-card {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.context-close-btn {
+.btn-close-info {
   position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
-  width: 28px;
-  height: 28px;
+  top: 0.8rem;
+  right: 0.8rem;
+  background: #f1f5f9;
+  border: none;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
-  background: var(--bg-page);
-  color: var(--text-muted);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  transition: all var(--transition-fast);
-}
-
-.context-close-btn:hover {
-  background: #fee2e2;
-  color: #dc2626;
-}
-
-.context-header-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  font-size: 0.72rem;
+  cursor: pointer;
   font-weight: 700;
-  text-transform: uppercase;
-  padding: 0.2rem 0.6rem;
-  border-radius: var(--radius-full);
-  margin-bottom: 0.5rem;
 }
 
-.context-title {
-  font-family: var(--font-heading);
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  line-height: 1.25;
-  margin-bottom: 0.4rem;
+/* Reubicación de controles de zoom de Leaflet para que no choquen con la cabecera */
+.leaflet-top.leaflet-left {
+  top: 84px;
+  left: 10px;
 }
-
-.context-desc {
-  font-size: 0.84rem;
-  color: var(--text-secondary);
-  line-height: 1.45;
-  margin-bottom: 0.75rem;
-}
-
-.context-meta-row {
-  display: flex;
-  gap: 0.75rem;
-  margin-bottom: 0.85rem;
-  padding-top: 0.6rem;
-  border-top: 1px solid var(--border-light);
-}
-
-.context-meta-item {
-  display: flex;
-  flex-direction: column;
-}
-
-.context-meta-label {
-  font-size: 0.68rem;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  font-weight: 600;
-}
-
-.context-meta-val {
-  font-size: 0.86rem;
-  font-weight: 700;
-  color: var(--text-primary);
-}
-
-.context-action-btn {
-  width: 100%;
-  padding: 0.5rem;
-  background: var(--ride-blue);
-  color: #ffffff;
-  border-radius: var(--radius-md);
-  font-size: 0.84rem;
-  font-weight: 600;
-  transition: background var(--transition-fast);
-}
-
-.context-action-btn:hover {
-  background: #002266;
-}
-
-/* ========================================================
-   ESTILOS DE POPUPS LEAFLET CUSTOM
-   ======================================================== */
-.leaflet-popup-content-wrapper {
-  border-radius: var(--radius-md) !important;
-  box-shadow: var(--shadow-lg) !important;
-  padding: 0.2rem !important;
-  font-family: var(--font-body) !important;
-}
-
-.leaflet-popup-content {
-  margin: 0.75rem 1rem !important;
-  line-height: 1.4 !important;
-}
-
-.custom-popup-title {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 0.95rem;
-  color: var(--ride-blue);
-  margin-bottom: 0.2rem;
-}
-
-.custom-popup-body {
-  font-size: 0.82rem;
-  color: var(--text-secondary);
-}
-

@@ -1,147 +1,77 @@
-/* ========================================================
-   PROYECTO RIDE — PONTE EN MARCHA | IES JOSÉ MARÍA INFANTES
-   RESPONSIVE.CSS — Adaptabilidad Móvil, Tablet y Pantallas Grandes
-   ======================================================== */
-
 @media (max-width: 1024px) {
-  .slogan-badge {
-    display: none; /* Ocultar eslogan largo en pantallas medianas para no colapsar la barra */
+  .activity-banner {
+    grid-column: span 6;
+    min-height: 320px;
   }
 
-  .slide-drawer {
-    width: 400px;
+  .activity-banner.banner-map-featured {
+    grid-column: span 12;
+    min-height: 350px;
   }
 }
 
 @media (max-width: 768px) {
-  :root {
-    --header-height: 60px;
+  html {
+    font-size: 16px;
   }
 
-  .app-header {
-    padding: 0 1rem;
-  }
-
-  .brand-title {
-    font-size: 1rem;
+  .container,
+  .navbar-container {
+    padding: 0 1.15rem;
   }
 
   .brand-subtitle {
-    font-size: 0.7rem;
-  }
-
-  .ride-logo {
-    width: 38px;
-    height: 38px;
-  }
-
-  .mobile-menu-btn {
-    display: flex;
-  }
-
-  /* Menú de Navegación Móvil */
-  .header-right {
-    position: fixed;
-    top: var(--header-height);
-    left: 0;
-    right: 0;
-    background: var(--bg-glass);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid var(--border-light);
-    padding: 1rem;
-    flex-direction: column;
-    gap: 0.6rem;
-    transform: translateY(-150%);
-    opacity: 0;
-    pointer-events: none;
-    transition: all var(--transition-smooth);
-    box-shadow: var(--shadow-md);
-  }
-
-  .header-right.open {
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .nav-btn {
-    width: 100%;
-    justify-content: flex-start;
-    padding: 0.65rem 1rem;
-    font-size: 0.95rem;
-  }
-
-  /* Controles del Mapa en Móvil */
-  .map-controls-floating {
-    top: 0.75rem;
-    left: 0.75rem;
-    right: 0.75rem;
-    flex-direction: column;
-    gap: 0.4rem;
-  }
-
-  .control-group {
-    width: fit-content;
-  }
-
-  .route-select-group {
-    width: 100%;
-  }
-
-  .route-select {
-    width: 100%;
-    font-size: 0.78rem;
-  }
-
-  /* Leyenda flotante colapsada por defecto en móvil */
-  .map-legend-card {
-    top: auto;
-    bottom: 1rem;
-    right: 0.75rem;
-    width: calc(100vw - 1.5rem);
-    max-height: 50vh;
-  }
-
-  .map-legend-card.collapsed .legend-body {
     display: none;
   }
 
-  /* Tarjeta contextual estilo Bottom Sheet */
-  .map-context-card {
+  .hero-editorial {
+    padding: 2.2rem 0 1.6rem;
+  }
+
+  .editorial-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .activity-banner,
+  .activity-banner:nth-child(1),
+  .activity-banner:nth-child(6),
+  .activity-banner:nth-child(7),
+  .activity-banner.banner-map-featured {
+    grid-column: span 1;
+    min-height: 290px;
+  }
+
+  .activity-banner-content {
+    padding: 1.4rem;
+  }
+
+  .article-body {
+    padding: 1.6rem 1.35rem;
+  }
+
+  .detail-footer-nav {
+    flex-direction: column;
+  }
+
+  /* Adaptación móvil del mapa (Actividad 13) */
+  .map-floating-header {
+    top: 0.75rem;
     left: 0.75rem;
     right: 0.75rem;
+    padding: 0.55rem 0.85rem;
+  }
+
+  .map-controls-drawer {
+    top: auto;
     bottom: 0.75rem;
+    right: 0.75rem;
+    left: 0.75rem;
     width: auto;
-    max-width: none;
+    max-height: 34vh;
   }
 
-  /* Slide drawer a pantalla completa en móvil */
-  .slide-drawer {
-    width: 100vw;
-  }
-
-  /* Galería en móvil */
-  .gallery-inner {
-    padding: 1rem 0.75rem 3rem;
-  }
-
-  .gallery-topbar {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-
-  .gallery-main-title {
-    font-size: 1.4rem;
-  }
-
-  .gallery-editorial-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .ies-info-grid {
-    grid-template-columns: 1fr;
+  .map-compact-legend {
+    display: none;
   }
 }
-
