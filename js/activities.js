@@ -19,7 +19,7 @@ export const RideActivities = (() => {
       id: 2,
       title: 'Ciclotaller Bartali',
       shortDescription: 'Mecánica básica, mantenimiento preventivo y puesta a punto de bicicletas.',
-      image: 'assets/images/ciclotaller-bartali.jpg',
+      image: 'assets/images/imagenNormativa.jpeg',
       content: 'Taller práctico de reparación y ajuste de bicicletas inspirado en los valores del ciclismo educativo.'
     },
     {
