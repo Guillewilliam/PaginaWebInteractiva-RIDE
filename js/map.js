@@ -1,24 +1,20 @@
 /**
- * Módulo cartográfico independiente para la Actividad 13:
+ * Módulo cartográfico blindado para la Actividad 13:
  * "Rutas ciclistas de Utrera"
- * Carga el mapa base OSM, rutas (data/routes.geojson), puntos de interés (data/points.geojson),
- * controles flotantes de capas y panel informativo contextual.
  */
 let rideMapInstance = null;
 let mapInitialized = false;
 
-// Coordenadas centrales de Utrera (Sevilla)
 const UTRERA_CENTER = [37.1825, -5.7815];
 const UTRERA_ZOOM = 14;
 
-// Paleta de colores según tipo de vía ciclista
 function getRouteStyle(feature) {
   const props = feature.properties || {};
   const rawType = String(
     props.tipo || props.type || props.categoria || props.category || props.estado || ''
   ).toLowerCase();
 
-  let color = '#16a34a'; // Carril bici segregado por defecto
+  let color = '#16a34a';
   let dashArray = null;
 
   if (rawType.includes('compartid') || rawType.includes('ciclocalle') || rawType.includes('urbana')) {
@@ -35,7 +31,7 @@ function getRouteStyle(feature) {
   return {
     color,
     weight: 5,
-    opacity: 0.9,
+    opacity: 0.92,
     dashArray
   };
 }
@@ -120,15 +116,14 @@ async function loadGeoJsonLayers() {
   if (routeSelectors) routeSelectors.innerHTML = '';
   if (poiSelectors) poiSelectors.innerHTML = '';
 
-  // 1. Cargar rutas ciclistas (data/routes.geojson)
   try {
-    const resRoutes = await fetch('data/routes.geojson');
+    const resRoutes = await fetch('./data/routes.geojson');
     if (resRoutes.ok) {
       const routesData = await resRoutes.json();
       const features = routesData.features || [];
 
       if (features.length > 0) {
-        const allBounds = L.latLngBounds([]);
+        const allBounds = window.L.latLngBounds([]);
 
         features.forEach((feature, idx) => {
           const props = feature.properties || {};
@@ -136,7 +131,7 @@ async function loadGeoJsonLayers() {
             props.nombre || props.name || props.titulo || `Ruta ciclista ${idx + 1}`;
           const style = getRouteStyle(feature);
 
-          const singleRouteLayer = L.geoJSON(feature, {
+          const singleRouteLayer = window.L.geoJSON(feature, {
             style: () => style,
             onEachFeature: (feat, layer) => {
               layer.on('mouseover', () => layer.setStyle({ weight: 8, opacity: 1 }));
@@ -158,19 +153,20 @@ async function loadGeoJsonLayers() {
           rideMapInstance.fitBounds(allBounds, { padding: [45, 45] });
         }
       }
+    } else {
+      console.warn('HTTP status al cargar routes.geojson:', resRoutes.status);
     }
   } catch (err) {
-    console.warn('No se pudo cargar data/routes.geojson:', err);
+    console.warn('Aviso cargando routes.geojson:', err);
   }
 
-  // 2. Cargar puntos de interés y centros educativos (data/points.geojson)
   try {
-    const resPoints = await fetch('data/points.geojson');
+    const resPoints = await fetch('./data/points.geojson');
     if (resPoints.ok) {
       const pointsData = await resPoints.json();
-      const pointsLayer = L.geoJSON(pointsData, {
+      const pointsLayer = window.L.geoJSON(pointsData, {
         pointToLayer: (feature, latlng) => {
-          return L.circleMarker(latlng, {
+          return window.L.circleMarker(latlng, {
             radius: 8,
             fillColor: '#0284c7',
             color: '#ffffff',
@@ -198,41 +194,68 @@ async function loadGeoJsonLayers() {
       );
     }
   } catch (err) {
-    console.warn('No se pudo cargar data/points.geojson:', err);
+    console.warn('Aviso cargando points.geojson:', err);
   }
 }
 
 export function initRideMap() {
   const mapContainer = document.getElementById('map');
-  if (!mapContainer || typeof L === 'undefined') return null;
+  if (!mapContainer) {
+    console.error('No se encontró el contenedor #map en el DOM.');
+    return null;
+  }
 
-  // Si ya estaba creado, solo recalculamos su tamaño al hacerse visible
+  if (typeof window.L === 'undefined') {
+    console.error('Leaflet (window.L) no está cargado. Revisa el script de Leaflet en index.html.');
+    return null;
+  }
+
+  // Garantiza dimensiones reales incluso si algún CSS externo intenta colapsarlo
+  mapContainer.style.width = '100%';
+  mapContainer.style.height = '100%';
+  mapContainer.style.minHeight = 'calc(100vh - 76px)';
+
   if (mapInitialized && rideMapInstance) {
     rideMapInstance.invalidateSize();
     return rideMapInstance;
   }
 
-  rideMapInstance = L.map('map', {
+  rideMapInstance = window.L.map('map', {
     center: UTRERA_CENTER,
     zoom: UTRERA_ZOOM,
     zoomControl: true
   });
 
-  // Capa base OpenStreetMap limpia y nítida
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  // Capa base principal OpenStreetMap + respaldo automático si alguna tesela falla
+  const osmLayer = window.L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; OpenStreetMap contributors · Proyecto RIDE Utrera'
-  }).addTo(rideMapInstance);
+  });
+
+  osmLayer.on('tileerror', () => {
+    if (!rideMapInstance.hasLayer(fallbackLayer)) {
+      fallbackLayer.addTo(rideMapInstance);
+    }
+  });
+
+  const fallbackLayer = window.L.tileLayer(
+    'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
+    {
+      maxZoom: 19,
+      attribution: '&copy; OpenStreetMap &copy; CARTO · Proyecto RIDE Utrera'
+    }
+  );
+
+  osmLayer.addTo(rideMapInstance);
 
   mapInitialized = true;
   window.rideMap = rideMapInstance;
 
   loadGeoJsonLayers();
 
-  // Forzar recalibración tras la animación de entrada de la vista
   setTimeout(() => {
     rideMapInstance.invalidateSize();
-  }, 200);
+  }, 250);
 
   return rideMapInstance;
 }
